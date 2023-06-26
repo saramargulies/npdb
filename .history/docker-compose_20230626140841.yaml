@@ -14,7 +14,7 @@ services:
     volumes:
       - ./api:/app
     depends_on:
-      - mongo
+      - serviceName
   
   mongo:
     image: mongo

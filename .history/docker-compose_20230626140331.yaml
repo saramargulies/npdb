@@ -13,8 +13,6 @@ services:
       - 8000:8000
     volumes:
       - ./api:/app
-    depends_on:
-      - mongo
   
   mongo:
     image: mongo
@@ -23,7 +21,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
     volumes:
-      - park-project-data:/data/db
+    
 
   ghi:
     image: node:lts-bullseye
