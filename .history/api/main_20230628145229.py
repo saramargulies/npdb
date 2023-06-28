@@ -4,11 +4,10 @@ import os
 from routers.authenticator import authenticator
 from routers import signup, parks
 
-
 app = FastAPI()
 app.include_router(authenticator.router, tags=["Accounts"])
 app.include_router(signup.signup, tags=["Accounts"])
-app.include_router(parks.router, tags=["Park Data"])
+app.include_router(router)
 
 app.add_middleware(
     CORSMiddleware,

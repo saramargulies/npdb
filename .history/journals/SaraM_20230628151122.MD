@@ -1,0 +1,10 @@
+6/26
+i implemented the mongo db
+current blocker is auth
+
+6/27
+got auth to create account but get_hashed_password does not work
+
+6/28
+no blockers, helped get the duplicate account error working, will work on two new issues this afternoon
+Just added the back-end call to the API that grabs parks data by state
