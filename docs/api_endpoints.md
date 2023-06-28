@@ -79,7 +79,7 @@
 * Endpoint path: https://developer.nps.gov/api/v1/parks
 * Endpoint method: GET
 * Query parameters:
-  * state: filter by state
+  * state: filter by state /${ }
 * Headers:
   * Authorization: API key
 * Response: National parks filtered by state
@@ -92,7 +92,7 @@
 
 * Get Park Details
 
-* Endpoint path: https://developer.nps.gov/api/v1/parks
+* Endpoint path: https://developer.nps.gov/api/v1/parks/${park_id}
 * Endpoint method: GET
 * Headers:
   * Authorization: API key
@@ -334,4 +334,28 @@ Create Review
     ```
 ----------------------------------------------------
 
-<!-- Note:  Add all reviews for individual user -->
+* Show All User Reviews
+
+* Endpoint path: api/reviews/{user_id}
+* Endpoint method: GET
+* Headers:
+  * Authorization: Bearer token
+    ```
+
+* Response shape (JSON):
+    ```json
+    {
+        "reviews":[
+            {
+        "park_id": str,
+        "review": str,
+        "rating": int,
+        "user": {
+            "user_id": str,
+            "username": username
+        }
+        },
+        ]
+    }
+    ```
+* Response: List of all the reviews for one user
