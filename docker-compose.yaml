@@ -6,7 +6,7 @@ services:
     environment:
       CORS_HOST: http://localhost:3000
       DATABASE_URL: mongodb://root:example@mongo
-      SIGNING_KEY: WQ4X4VMFWABOSX9F98I25LX6AGGNL1
+      SIGNING_KEY: ${SIGNING_KEY}
       WAIT_HOSTS: mongo:27017
       WAIT_BEFORE: 5
       WAIT_TIMEOUT: 60
@@ -19,7 +19,7 @@ services:
       - ./api:/app
     depends_on:
       - mongo
-  
+
   mongo:
     image: mongo
     restart: always
@@ -28,7 +28,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
     volumes:
       - park-project-data:/data/db
-  
+
   mongo-express:
     image: mongo-express
     environment:
