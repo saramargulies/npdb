@@ -41,6 +41,8 @@ class AccountRepo(BaseModel):
         self, info: AccountIn, hashed_password: str
     ) -> AccountOutWithPassword:
         info = info.dict()
+        if self.get(info["username"]) is not None:
+            raise DuplicateAccountError
         info["hashed_password"] = hashed_password
         del info["password"]
         collection.insert_one(info)
