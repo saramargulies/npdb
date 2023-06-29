@@ -13,7 +13,6 @@ class ImageOut(BaseModel):
     url: str
 
 
-
 class ParkOut(BaseModel):
     id: str
     url: str
@@ -27,3 +26,20 @@ class ParkOut(BaseModel):
 
 class ListParksOut(BaseModel):
     data: list[ParkOut]
+
+
+class WishlistItemIn(BaseModel):
+    fullName: str
+    states: str
+
+
+class WishlistItemOut(BaseModel):
+    id: str
+    fullName: str
+    states: str
+    account_id: str
+    visited: bool
+
+
+class Wishlist(BaseModel):
+    wishlist_items: List[WishlistItemOut]
