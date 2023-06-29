@@ -11,6 +11,7 @@ class WishlistQueries(MongoQueries):
         item["account_id"] = account_id
         self.collection.insert_one(item)
         item["id"] = str(item["_id"])
+        item["visited"] = False
         return item
 
     def wishlist_for_account(self, account_id: str):
@@ -20,8 +21,6 @@ class WishlistQueries(MongoQueries):
             results.append(item)
         return results
 
-    def delete(self, wishlist_item_id: str, account_id: str):
-        result = self.collection.delete_one(
-            {"_id": ObjectId(wishlist_item_id), "account_id": account_id}
-        )
-        return result.deleted_count > 0
+    # def delete(self, item_id: str, account_id: str):
+    # 	result = self.collection.delete_one({'_id': ObjectId(item_id), 'account_id': account_id})
+    # 	return result.deleted_count > 0

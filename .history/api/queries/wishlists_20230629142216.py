@@ -20,8 +20,8 @@ class WishlistQueries(MongoQueries):
             results.append(item)
         return results
 
-    def delete(self, wishlist_item_id: str, account_id: str):
+    def delete(self, item_id: str, account_id: str):
         result = self.collection.delete_one(
-            {"_id": ObjectId(wishlist_item_id), "account_id": account_id}
+            {"_id": ObjectId(item_id), "account_id": account_id}
         )
         return result.deleted_count > 0
