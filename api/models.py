@@ -38,7 +38,6 @@ class WishlistItemOut(BaseModel):
     fullName: str
     states: str
     account_id: str
-    visited: bool
 
 
 class Wishlist(BaseModel):

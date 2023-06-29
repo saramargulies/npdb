@@ -14,13 +14,18 @@ class WishlistQueries(MongoQueries):
         item["visited"] = False
         return item
 
-    # def wishlist_for_account(self, account_id: str):
-    # 	results = []
-    # 	for item in self.collection.find({'account_id': account_id}):
-    # 		item['id'] = str(item['_id'])
-    # 		results.append(item)
-    #     return results
+    def wishlist_for_account(self, account_id: str):
+        results = []
+        for item in self.collection.find({'account_id': account_id}):
+            print(item)
+            item['id'] = str(item['_id'])
+            print(item['visited'])
+            # item['visited'] = False
+            results.append(item)
+        return results
 
-    # def delete(self, item_id: str, account_id: str):
-    # 	result = self.collection.delete_one({'_id': ObjectId(item_id), 'account_id': account_id})
-    # 	return result.deleted_count > 0
+    def delete(self, item_id: str, account_id: str):
+        result = self.collection.delete_one(
+            {'_id': ObjectId(item_id), 'account_id': account_id}
+            )
+        return result.deleted_count > 0

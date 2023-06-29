@@ -6,19 +6,19 @@ from queries.wishlists import WishlistQueries
 router = APIRouter()
 
 
-# @router.get("/api/wishlists/mine", response_model=Wishlist)
-# def wishlisted_parks_for_current_account(
-#     account_data: dict = Depends(authenticator.get_current_account_data),
-#     queries: WishlistQueries = Depends(),
-# ):
-#     return {
-#         "favorites": queries.wishlist_for_account(
-#             account_id=account_data["id"]
-#         )
-#     }
+@router.get("/api/wishlists/mine", response_model=Wishlist)
+def wishlisted_parks_for_current_account(
+    account_data: dict = Depends(authenticator.get_current_account_data),
+    queries: WishlistQueries = Depends(),
+):
+    return {
+        "wishlist_items": queries.wishlist_for_account(
+            account_id=account_data["id"]
+        )
+    }
 
 
-@router.post("/api/wishlist", response_model=WishlistItemOut)
+@router.post("/api/wishlists", response_model=WishlistItemOut)
 def create_wishlist_item(
     wishlist_item_in: WishlistItemIn,
     account_data: dict = Depends(authenticator.get_current_account_data),
