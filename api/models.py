@@ -13,10 +13,12 @@ class ImageOut(BaseModel):
     url: str
 
 
+
 class ParkOut(BaseModel):
     id: str
     url: str
     fullName: str
+    parkCode: str
     description: str
     activities: list[ActivityOut]
     states: str
