@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends
 from models import Wishlist, WishlistItemIn, WishlistItemOut
 from .authenticator import authenticator
 from queries.wishlists import WishlistQueries
+# from fastapi import HTTPException
 
 router = APIRouter()
 
@@ -49,3 +50,6 @@ def mark_as_visited(
     return queries.mark_visited(
         wishlist_item_id=wishlist_item_id, account_id=account_data["id"]
     )
+    # if wishlist_item_id is None:
+    #     raise HTTPException(status_code=404, detail="Item not found")
+    # return wishlist_item_id

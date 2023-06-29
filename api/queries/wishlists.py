@@ -30,3 +30,4 @@ class WishlistQueries(MongoQueries):
         result = self.collection.update_one(
             {"_id": ObjectId(wishlist_item_id)}, {"$set": {"visited": True}}
         )
+        return result.modified_count > 0
