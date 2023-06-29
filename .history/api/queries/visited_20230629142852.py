@@ -4,7 +4,7 @@ from queries.client import MongoQueries
 
 
 class WishlistQueries(MongoQueries):
-    collection_name = "wishlist"
+    collection_name = "visited"
 
     def create(self, wishlist_item_in: WishlistItemIn, account_id: str):
         item = wishlist_item_in.dict()
@@ -25,8 +25,3 @@ class WishlistQueries(MongoQueries):
             {"_id": ObjectId(wishlist_item_id), "account_id": account_id}
         )
         return result.deleted_count > 0
-
-    def mark_visited(self, wishlist_item_id: str, account_id: str):
-        result = self.collection.update_one(
-            {"_id": ObjectId(wishlist_item_id)}, {"$set": {"visited": True}}
-        )

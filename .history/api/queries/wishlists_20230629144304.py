@@ -26,7 +26,4 @@ class WishlistQueries(MongoQueries):
         )
         return result.deleted_count > 0
 
-    def mark_visited(self, wishlist_item_id: str, account_id: str):
-        result = self.collection.update_one(
-            {"_id": ObjectId(wishlist_item_id)}, {"$set": {"visited": True}}
-        )
+    def mark_visited

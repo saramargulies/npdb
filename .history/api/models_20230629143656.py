@@ -46,19 +46,19 @@ class Wishlist(BaseModel):
     wishlist_items: List[WishlistItemOut]
 
 
-# class VisitedListItemIn(BaseModel):
-#     fullName: str
-#     states: str
-#     reviewed: bool = False
+class VisitedListItemIn(BaseModel):
+    fullName: str
+    states: str
+    reviewed: bool = False
 
 
-# class VisitedListItemOut(BaseModel):
-#     id: str
-#     fullName: str
-#     states: str
-#     account_id: str
-#     reviewed: bool = False
+class VisitedListItemOut(BaseModel):
+    id: str
+    fullName: str
+    states: str
+    account_id: str
+    reviewed: bool = False
 
 
-# class VisitedList(BaseModel):
-#     wishlist_items: List[VisitedListItemOut]
+class VisitedList(BaseModel):
+    wishlist_items: List[VisitedListItemOut]

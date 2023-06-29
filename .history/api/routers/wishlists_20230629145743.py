@@ -46,6 +46,4 @@ def mark_as_visited(
     account_data: dict = Depends(authenticator.get_current_account_data),
     queries: WishlistQueries = Depends(),
 ):
-    return queries.mark_visited(
-        wishlist_item_id=wishlist_item_id, account_id=account_data["id"]
-    )
+    return queries.mark_visited(wishlist_item_id=wishlist_item_id)

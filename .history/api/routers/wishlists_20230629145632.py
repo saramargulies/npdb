@@ -40,12 +40,4 @@ def delete_wishlist_item(
     )
 
 
-@router.put("/api/wishlists/{wishlist_item_id}")
-def mark_as_visited(
-    wishlist_item_id: str,
-    account_data: dict = Depends(authenticator.get_current_account_data),
-    queries: WishlistQueries = Depends(),
-):
-    return queries.mark_visited(
-        wishlist_item_id=wishlist_item_id, account_id=account_data["id"]
-    )
+@router.update
