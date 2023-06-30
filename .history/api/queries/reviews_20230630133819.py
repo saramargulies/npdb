@@ -34,9 +34,7 @@ class ReviewQueries(MongoQueries):
         return result.deleted_count > 0
 
     def get_review_by_id(self, review_id: str):
-        result = self.collection.find_one({"_id": ObjectId(review_id)})
-        result["_id"] = str(result["_id"])
-        print(result)
+        result = self.collection.find({"_id": ObjectId(review_id)})
         return result
 
     def edit_review(

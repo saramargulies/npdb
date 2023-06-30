@@ -35,7 +35,7 @@ class ReviewQueries(MongoQueries):
 
     def get_review_by_id(self, review_id: str):
         result = self.collection.find_one({"_id": ObjectId(review_id)})
-        result["_id"] = str(result["_id"])
+        result["id"] = str(result["_id"])
         print(result)
         return result
 

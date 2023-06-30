@@ -33,11 +33,9 @@ class ReviewQueries(MongoQueries):
         )
         return result.deleted_count > 0
 
-    def get_review_by_id(self, review_id: str):
-        result = self.collection.find_one({"_id": ObjectId(review_id)})
-        result["_id"] = str(result["_id"])
-        print(result)
-        return result
+    # def get_review_by_id(self, review_id: str):
+    #     result = self.collection.find({"review_id": review_id})
+    #     return result
 
     def edit_review(
         self, review_id: str, account_id: str, review_in: ReviewIn
@@ -45,4 +43,4 @@ class ReviewQueries(MongoQueries):
         result = self.collection.update_one(
             {"_id": ObjectId(review_id)}, {"$set": review_in.dict()}
         )
-        return self.get_review_by_id(review_id)
+        return self.collection.find({"review_id": review_id})

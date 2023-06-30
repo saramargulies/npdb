@@ -14,12 +14,10 @@ def reviews_for_current_user(
     account_data: dict = Depends(authenticator.get_current_account_data),
     queries: ReviewQueries = Depends(),
 ):
-    return {
-        "reviews": queries.reviews_for_account(account_id=account_data["id"])
-    }
+    return {"reviews": queries.reviews_for_account(account_id=account_data["id"])}
 
 
-@router.get("/api/parks/{parkCode}/reviews", response_model=ParkReviewsList)
+@router.get("/api/parks/reviews/park/{parkCode}", response_model=ParkReviewsList)
 def reviews_for_park(
     parkCode: str,
     queries: ReviewQueries = Depends(),
@@ -33,7 +31,9 @@ def create_review(
     account_data: dict = Depends(authenticator.get_current_account_data),
     queries: ReviewQueries = Depends(),
 ):
-    return queries.create(review_in=review_in, account_id=account_data["id"])
+    return queries.create(
+        review_in=review_in, account_id=account_data["id"]
+    )
 
 
 @router.delete("/api/reviews/{review_id}")
@@ -42,7 +42,9 @@ def delete_review(
     account_data: dict = Depends(authenticator.get_current_account_data),
     queries: ReviewQueries = Depends(),
 ):
-    return queries.delete(review_id=review_id, account_id=account_data["id"])
+    return queries.delete(
+        review_id=review_id, account_id=account_data["id"]
+    )
 
 
 @router.put("/api/reviews/{review_id}")
