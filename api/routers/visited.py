@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 from models import VisitedList, VisitedListItemIn, VisitedListItemOut
-from .authenticator import authenticator
+from authenticator import authenticator
 from queries.visited import VisitedListQueries
 
 router = APIRouter()

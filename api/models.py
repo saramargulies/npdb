@@ -62,3 +62,28 @@ class VisitedListItemOut(BaseModel):
 
 class VisitedList(BaseModel):
     visited_list_items: List[VisitedListItemOut]
+
+
+class ReviewIn(BaseModel):
+    parkCode: str
+    review: str
+    rating: int
+    account_id: str
+
+
+class ReviewOut(BaseModel):
+    id: str
+    parkCode: str
+    review: str
+    rating: int
+    account_id: str
+
+
+class ParkReviewsList(BaseModel):
+    reviews: List[ReviewOut]
+    # parkCode: str
+
+
+class AccountReviewsList(BaseModel):
+    reviews: List[ReviewOut]
+    # account_id: str

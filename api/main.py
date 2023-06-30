@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
-from routers.authenticator import authenticator
-from routers import signup, parks, wishlists, visited
+from authenticator import authenticator
+from routers import signup, parks, wishlists, visited, reviews
 
 
 app = FastAPI()
@@ -11,6 +11,7 @@ app.include_router(signup.signup, tags=["Accounts"])
 app.include_router(parks.router, tags=["Park Data"])
 app.include_router(wishlists.router, tags=["Wishlists"])
 app.include_router(visited.router, tags=["Visited List"])
+app.include_router(reviews.router, tags=["Reviews"])
 
 
 app.add_middleware(
