@@ -9,3 +9,7 @@ did not "drive today. we worked together on backend endpoints for showing parks 
 6/29
 
 completed feature to GET a wishlist
+
+6/30
+
+implemented endpoints for creating, updating, deleting and GETting reviews.
