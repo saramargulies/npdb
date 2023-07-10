@@ -25,7 +25,7 @@ class ParkOut(BaseModel):
 
 
 class ListParksOut(BaseModel):
-    data: list[ParkOut]
+    data: List[ParkOut]
 
 
 class WishlistItemIn(BaseModel):
