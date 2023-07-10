@@ -26,7 +26,7 @@ const ParksByStateList = () => {
     <>
       <table className="table table-hover table-secondary table-striped border border-dark-subtle shadow container-fluid mt-5">
 
-        <tbody className="border-top border-dark-subtle">
+        <div className="border-top border-dark-subtle">
           {parks.map((park) => {
             return (
               <tr key={park.id}>

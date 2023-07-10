@@ -35,7 +35,7 @@ function App() {
           <Route path="/visited" element={<Visited />} />
           <Route path="/reviews/mine" element={<MyReviews />} />
           <Route path="*" element={<NotFoundPage />} />
-          <Route path="/park/:code" element={<ParkDetails />} />
+          <Route path="/parks/:code" element={<ParkDetails />} />
           <Route path="/parks/:state" element={<ParksByStateList />} />
         </Routes>
       </div>

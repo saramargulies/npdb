@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "react-router-dom";
-import { useParams, Link } from "react-router-dom";
+import { useParams,  } from "react-router-dom";
 
 const ParksByStateList = () => {
 
   let { state } = useParams()
 
-  const [parks, setParks] = useState([]);
+  const [states, setStates] = useState([]);
 
   const fetchData = async () => {
-    const url = `http://localhost:8000/api/parks/${state}`;
-
+    const url = "http://localhost:8000/api/parks/";
     const response = await fetch(url);
     if (response.ok) {
       const data = await response.json();
-      setParks(data.data);
-      console.log(data)
+      setStates(data.states);
     }
   };
 
@@ -25,15 +23,21 @@ const ParksByStateList = () => {
   return (
     <>
       <table className="table table-hover table-secondary table-striped border border-dark-subtle shadow container-fluid mt-5">
-
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
+          </tr>
+        </thead>
         <tbody className="border-top border-dark-subtle">
-          {parks.map((park) => {
+          {states.map((state) => {
             return (
-              <tr key={park.id}>
-                <td>{park.fullName}</td>
-                <td>{park.description}</td>
+              <tr key={state.id}>
+                <td>{state.fullName}</td>
+                <td>{state.description}</td>
                 <td>
-                  <img src={park.images[0].url} alt={park.fullName} />
+                  <img src={state.images[0]} alt={state.fullName} />
                 </td>
               </tr>
             );

@@ -9,13 +9,13 @@ const ParksByStateList = () => {
   const [parks, setParks] = useState([]);
 
   const fetchData = async () => {
-    const url = `http://localhost:8000/api/parks/${state}`;
+    const url = `http://localhost:8000/api/parks/${state}`
 
     const response = await fetch(url);
     if (response.ok) {
       const data = await response.json();
-      setParks(data.data);
-      console.log(data)
+      setParks(data);
+      console.log(parks)
     }
   };
 
@@ -25,7 +25,13 @@ const ParksByStateList = () => {
   return (
     <>
       <table className="table table-hover table-secondary table-striped border border-dark-subtle shadow container-fluid mt-5">
-
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
+          </tr>
+        </thead>
         <tbody className="border-top border-dark-subtle">
           {parks.map((park) => {
             return (
@@ -33,7 +39,7 @@ const ParksByStateList = () => {
                 <td>{park.fullName}</td>
                 <td>{park.description}</td>
                 <td>
-                  <img src={park.images[0].url} alt={park.fullName} />
+                  <img src={park.images[0]} alt={park.fullName} />
                 </td>
               </tr>
             );
