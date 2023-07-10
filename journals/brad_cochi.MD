@@ -12,3 +12,6 @@ Got create wishlist item functionality working. Also wrote starter code for team
 
 6/30
 Wrote code for group to implement all endpoints for reviews functionality. Had a blocker that was preventing us from deleting a review once it had been updated, but got that fixed.
+
+7/10
+Wrote the UI code for the star rating selector. Finished Sean's work on the list of states along with the rest of the group. Worked in a group to update our issues.
