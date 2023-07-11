@@ -33,8 +33,8 @@ const ParksByStateList = () => {
                 <td>{park.fullName}</td>
                 <td>{park.description}</td>
                 <td>
-                  { park.images.length > 0 && <img src={park.images[0].url} alt={park.fullName} /> }
-                  {/* <img src={park.images[0].url} alt={park.fullName} /> */}
+                  { park.images && <img src={park.images[0].url} alt={park.fullName} /> }
+                  <img src={park.images[0].url} alt={park.fullName} />
                 </td>
               </tr>
             );
