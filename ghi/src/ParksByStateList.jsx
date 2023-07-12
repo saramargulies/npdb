@@ -30,7 +30,7 @@ const ParksByStateList = () => {
           {parks.map((park) => {
             return (
               <tr key={park.id}>
-                <td>{park.fullName}</td>
+                <td><Link to={`/park/${park.parkCode}`}>{park.fullName}</Link></td>
                 <td>{park.description}</td>
                 <td>
                   { park.images.length > 0 && <img src={park.images[0].url} alt={park.fullName} /> }
