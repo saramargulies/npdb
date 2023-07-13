@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import myReviews from "../MyReviews";
 
 export const npsApi = createApi({
   reducerPath: "npsApi",
@@ -15,14 +14,6 @@ export const npsApi = createApi({
       transformResponse: (response) => response.wishlist_items,
       providesTags: ["Wishlist"]
     }),
-    deleteWishlist: builder.mutation({
-      query: (wishlist_item_id) => ({
-        url: `/api/wishlists/${wishlist_item_id}`,
-        method: "DELETE",
-        credentials: "include",
-      }),
-      invalidatesTags: ["Wishlist"],
-    }),
     getVisited: builder.query({
       query: () => ({
         url: 'api/visited-lists',
@@ -32,7 +23,7 @@ export const npsApi = createApi({
       providesTags: ["Visited"]
     }),
     deleteVisited: builder.mutation({
-      query: (visited_list_item_id) => ({
+      query: (visited) => ({
         url: `/api/visited-lists/${visited_list_item_id}`,
         method: "DELETE",
         credentials: "include",
@@ -78,23 +69,6 @@ export const npsApi = createApi({
       }),
       invalidatesTags: ["Account"],
     }),
-    submitReview: builder.mutation({
-      query: ({ parkCode, review, rating }) => {
-        const body = {
-          "parkCode": parkCode,
-          "review": review,
-          "rating": rating
-      };
-        console.log(body)
-        return {
-          url: "/api/reviews",
-          method: "POST",
-          body,
-          credentials: "include",
-        };
-      },
-      invalidatesTags: ["Account"],
-    }),
   }),
 });
 
@@ -105,7 +79,5 @@ export const {
   useGetAccountQuery,
   useGetWishlistQuery,
   useGetVisitedQuery,
-  useSubmitReviewMutation,
-  useDeleteVisitedMutation,
-  useDeleteWishlistMutation
+  useDeleteVisitedMutation
 } = npsApi;
