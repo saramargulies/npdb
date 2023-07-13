@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDeleteWishlistMutation, useGetWishlistQuery } from './app/apiSlice';
+import { useDeleteVisitedMutation, useGetVisitedQuery } from './app/apiSlice';
 
-function Wishlist() {
+function Visited() {
 
-  const { data, isLoading, } = useGetWishlistQuery()
-  const [deleteWish] = useDeleteWishlistMutation()
+  const { data, isLoading, } = useGetVisitedQuery()
+  const [deleteVisit] = useDeleteVisitedMutation()
+
 
 
   if (isLoading) return <div>Loading...</div>
     return (
     <>
-    <h1>My Wishlist</h1>
+    <h1>My Visited Parks</h1>
     <div>
     <table className="table table-hover table-secondary table-striped border border-dark-subtle shadow container-fluid mt-5">
       <thead className="table-group-divider">
@@ -23,7 +24,7 @@ function Wishlist() {
         </tr>
       </thead>
       <tbody className="border-top border-dark-subtle">
-        {data.map(park => {
+        {data?.map(park => {
           return (
           <tr className="object-fit" key={ park.id }>
             <td>
@@ -33,10 +34,10 @@ function Wishlist() {
                 { park.states }
             </td>
             <td>
-              <button className="btn shadow btn-primary" onClick={() => deleteWish(park.id)}>Delete</button>
+              {/* <button className="btn shadow btn-primary" onClick={() => deleteVisit(park.id)}>Delete</button> */}
             </td>
             <td>
-              <button className="btn shadow btn-primary"><Link to={ `` } className="link-light" aria-current="page">Mark as visited</Link></button>
+              <button className="btn shadow btn-primary"><Link to={ `` } className="link-light" aria-current="page">Review</Link></button>
             </td>
           </tr>
         );
@@ -47,4 +48,4 @@ function Wishlist() {
     </>);
   }
 
-  export default Wishlist;
+  export default Visited;

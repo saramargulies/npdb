@@ -14,13 +14,13 @@ export const npsApi = createApi({
       transformResponse: (response) => response.wishlist_items,
       providesTags: ["Wishlist"]
     }),
-    deleteWishlist: builder.mutation({
-      query: (wishlist_item_id) => ({
-        url: `/api/wishlists/${wishlist_item_id}`,
+    deleteVisited: builder.mutation({
+      query: (visited_list_item_id) => ({
+        url: `/api/visited-lists/${visited_list_item_id}`,
         method: "DELETE",
         credentials: "include",
       }),
-      invalidatesTags: ["Wishlist"],
+      invalidatesTags: ["Visited"],
     }),
     getVisited: builder.query({
       query: () => ({
@@ -87,6 +87,5 @@ export const {
   useGetAccountQuery,
   useGetWishlistQuery,
   useGetVisitedQuery,
-  useDeleteVisitedMutation,
-  useDeleteWishlistMutation
+  useDeleteVisitedMutation
 } = npsApi;

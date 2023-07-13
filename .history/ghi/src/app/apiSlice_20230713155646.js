@@ -87,6 +87,5 @@ export const {
   useGetAccountQuery,
   useGetWishlistQuery,
   useGetVisitedQuery,
-  useDeleteVisitedMutation,
-  useDeleteWishlistMutation
+  useDeleteVisitedMutation
 } = npsApi;

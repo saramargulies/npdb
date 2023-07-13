@@ -33,7 +33,7 @@ function Wishlist() {
                 { park.states }
             </td>
             <td>
-              <button className="btn shadow btn-primary" onClick={() => deleteWish(park.id)}>Delete</button>
+              <button className="btn shadow btn-primary">Delete</button>
             </td>
             <td>
               <button className="btn shadow btn-primary"><Link to={ `` } className="link-light" aria-current="page">Mark as visited</Link></button>
