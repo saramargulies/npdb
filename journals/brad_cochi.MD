@@ -15,3 +15,12 @@ Wrote code for group to implement all endpoints for reviews functionality. Had a
 
 7/10
 Wrote the UI code for the star rating selector. Finished Sean's work on the list of states along with the rest of the group. Worked in a group to update our issues.
+
+7/11
+Worked as a group on setting up front-end auth and Redux. Still have blockers when it comes to getting signup and signin to work.
+
+7/12
+Implemented clickable US map for home page that redirects user to each page with list of all parks by state. Worked as a group and got both Redux and front-end auth functioning. Signup and signup are working and successfully creating users in the database. Group worked together to get park details page working but still have blocker with fetch data not working.
+
+7/13
+Cleared blocker for park details page and corrected route in URL. Park details page in functioning.
