@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import myReviews from "../MyReviews";
 
 export const npsApi = createApi({
   reducerPath: "npsApi",
@@ -61,6 +62,23 @@ export const npsApi = createApi({
       }),
       invalidatesTags: ["Account"],
     }),
+    submitReview: builder.mutation({
+      query: ({ parkCode, review, rating }) => {
+        const body = {
+          "parkCode": parkCode,
+          "review": review,
+          "rating": rating
+      };
+        console.log(body)
+        return {
+          url: "/api/reviews",
+          method: "POST",
+          body,
+          credentials: "include",
+        };
+      },
+      invalidatesTags: ["Account"],
+    }),
   }),
 });
 
@@ -71,5 +89,6 @@ export const {
   useGetAccountQuery,
   useGetWishlistQuery,
   useGetVisitedQuery,
+  useSubmitReviewMutation,
   useDeleteVisitedMutation
 } = npsApi;

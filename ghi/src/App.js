@@ -11,6 +11,7 @@ import Logout from "./Logout";
 import NotFoundPage from "./NotFoundPage";
 import ParkDetails from "./ParkDetails";
 import ParksByStateList from "./ParksByStateList";
+import ReviewForm from "./ReviewForm";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/visited" element={<Visited />} />
           <Route path="/reviews/mine" element={<MyReviews />} />
+          <Route path="/reviewform" element={<ReviewForm />} />
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/park/:code" element={<ParkDetails />} />
           <Route path="/parks/:state" element={<ParksByStateList />} />

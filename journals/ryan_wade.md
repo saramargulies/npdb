@@ -19,7 +19,7 @@ Excellent progress thus far as all 19 of our backend endpoints are set up and wo
 We had a week off for a summer break. Our first day back was very productive as we started the React front end. I started coding the outline of the project with templates for different pages, also setting up the nav bar, and app.js. Then, we set up the basic functionality that underlies the home page. We have links to each of the 50 states connected to the NPS API endpoints that gets all parks for the state. We also set up the list page that the links connect to, with basic data including images for the park.
 
 7/11
-We had a block in that I noticed some of the links to individual state pages weren't loading. Upon inspection, we found that if a state had a park without an image it would not load as that data was expected to be there. We adjusted the code from this:
+We had a blocker in that I noticed some of the links to individual state pages weren't loading. Upon inspection, we found that if a state had a park without an image it would not load as that data was expected to be there. We adjusted the code from this:
 
  <td><img src={park.images[0].url} alt={park.fullName} /></td>
 
@@ -30,3 +30,10 @@ to this:
 Note: This is only a temporary solution, as the list now has an empty space for the parks without an associated image. I plan to make an image (maybe the logo for our website, with "image coming soon") to insert in these places later.
 
 As a group, we also began implementing the code to use Redux to manage state throughout the project. We began with the routes for sign up and authentication.
+
+7/12
+Brad completed a major step in adding a clickable map on the homepage to link to each state list page. We had a blocker in that the module didn't load for everyone when docker rebuilt. We had to do a force install, which is something we need to make sure won't cause issues later.  We'll want to run the docker file on other computers to test if it loads correctly in new environments.
+
+We had a small blocker with the sign up form we completed yesterday in that I noticed it successfully redirected to the homepage, but did not save the new user to the database. We were trying to enter a new user with only username and password. When I added the "Full Name" field on the form it matched our backend requirements and worked correctly, saving new users to the database.
+
+It was another very productive day as we also completed the login page, the basic wishlist page, and the link from the state list page to the individual park details page. We have been working together collaboratively taking turns coding. When I say we "completed" the pages, I mean we have the basic functionality down and it is working as expected. We will work on the aestetics later by going back and adding the frontend styling.
