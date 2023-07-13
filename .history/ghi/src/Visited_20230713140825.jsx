@@ -6,7 +6,11 @@ function Visited() {
 
   const { data, isLoading, } = useGetVisitedQuery()
 
-
+  function deleteItem(visited_list_item_id) {
+    fetch(`http://localhost:8000/api/visited-lists/${visited_list_item_id}`, {
+            method: "DELETE"
+        })
+}
 
   if (isLoading) return <div>Loading...</div>
     return (
@@ -33,7 +37,7 @@ function Visited() {
                 { park.states }
             </td>
             <td>
-              <button className="btn shadow btn-primary">Delete</button>
+              <button className="btn shadow btn-primary" onClick={deleteItem(park.id)}>Delete</button>
             </td>
             <td>
               <button className="btn shadow btn-primary"><Link to={ `` } className="link-light" aria-current="page">Review</Link></button>

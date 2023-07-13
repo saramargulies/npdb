@@ -22,6 +22,14 @@ export const npsApi = createApi({
       transformResponse: (response) => response.visited_list_items,
       providesTags: ["Visited"]
     }),
+    deleteVisited: builder.mutation({
+      query: () => ({
+        url: `/api/visited-lists/${visited_list_item_id}`,
+        method: "DELETE",
+        credentials: "include",
+      }),
+      invalidatesTags: ["Account"],
+    }),
     getAccount: builder.query({
       query: () => ({
         url: `/token`,
@@ -70,6 +78,5 @@ export const {
   useLogoutMutation,
   useGetAccountQuery,
   useGetWishlistQuery,
-  useGetVisitedQuery,
-  useDeleteVisitedMutation
+  useGetVisitedQuery
 } = npsApi;

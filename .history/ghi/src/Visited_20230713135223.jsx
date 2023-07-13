@@ -5,8 +5,15 @@ import { useGetAccountQuery, useGetVisitedQuery } from './app/apiSlice';
 function Visited() {
 
   const { data, isLoading, } = useGetVisitedQuery()
-
-
+  const deleteShoe = async () => {
+    const shoeUrl = `http://localhost:8080/api/shoes/${ id }`
+    const fetchConfig = {method: "delete"}
+  
+    const response = await fetch(shoeUrl, fetchConfig)
+    if (response.ok) {
+      console.log("item deleted")
+  }
+  }
 
   if (isLoading) return <div>Loading...</div>
     return (
@@ -33,7 +40,7 @@ function Visited() {
                 { park.states }
             </td>
             <td>
-              <button className="btn shadow btn-primary">Delete</button>
+              <button className="btn shadow btn-primary" onClick={deleteItem}>Delete</button>
             </td>
             <td>
               <button className="btn shadow btn-primary"><Link to={ `` } className="link-light" aria-current="page">Review</Link></button>

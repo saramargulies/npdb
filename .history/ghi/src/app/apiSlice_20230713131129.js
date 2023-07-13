@@ -14,13 +14,13 @@ export const npsApi = createApi({
       transformResponse: (response) => response.wishlist_items,
       providesTags: ["Wishlist"]
     }),
-    getVisited: builder.query({
+    getWishlist: builder.query({
       query: () => ({
-        url: 'api/visited-lists',
+        url: 'api/wishlists',
         credentials: 'include'
       }),
-      transformResponse: (response) => response.visited_list_items,
-      providesTags: ["Visited"]
+      transformResponse: (response) => response.wishlist_items,
+      providesTags: ["Wishlist"]
     }),
     getAccount: builder.query({
       query: () => ({
@@ -69,7 +69,5 @@ export const {
   useLoginMutation,
   useLogoutMutation,
   useGetAccountQuery,
-  useGetWishlistQuery,
-  useGetVisitedQuery,
-  useDeleteVisitedMutation
+  useGetWishlistQuery
 } = npsApi;

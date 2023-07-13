@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useGetAccountQuery, useGetVisitedQuery } from './app/apiSlice';
+import { useGetAccountQuery, useGetWishlistQuery } from './app/apiSlice';
 
-function Visited() {
+function Wishlist() {
 
-  const { data, isLoading, } = useGetVisitedQuery()
+  const { data, isLoading, } = useGetWishlistQuery()
 
-
+  console.log(data)
 
   if (isLoading) return <div>Loading...</div>
     return (
     <>
-    <h1>My Visited Parks</h1>
+    <h1>My Wishlist</h1>
     <div>
     <table className="table table-hover table-secondary table-striped border border-dark-subtle shadow container-fluid mt-5">
       <thead className="table-group-divider">
@@ -33,10 +33,10 @@ function Visited() {
                 { park.states }
             </td>
             <td>
-              <button className="btn shadow btn-primary">Delete</button>
+              <button className="btn shadow btn-primary"><Link to={ `` } className="link-light" aria-current="page">Delete</Link></button>
             </td>
             <td>
-              <button className="btn shadow btn-primary"><Link to={ `` } className="link-light" aria-current="page">Review</Link></button>
+              <button className="btn shadow btn-primary"><Link to={ `` } className="link-light" aria-current="page">Mark as visited</Link></button>
             </td>
           </tr>
         );
@@ -47,4 +47,4 @@ function Visited() {
     </>);
   }
 
-  export default Visited;
+  export default Wishlist;

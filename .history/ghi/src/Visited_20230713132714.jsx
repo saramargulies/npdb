@@ -6,7 +6,7 @@ function Visited() {
 
   const { data, isLoading, } = useGetVisitedQuery()
 
-
+  console.log(data)
 
   if (isLoading) return <div>Loading...</div>
     return (

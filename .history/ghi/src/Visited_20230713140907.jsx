@@ -33,7 +33,7 @@ function Visited() {
                 { park.states }
             </td>
             <td>
-              <button className="btn shadow btn-primary">Delete</button>
+              <button className="btn shadow btn-primary" onClick={console.log())}>Delete</button>
             </td>
             <td>
               <button className="btn shadow btn-primary"><Link to={ `` } className="link-light" aria-current="page">Review</Link></button>

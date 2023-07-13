@@ -6,7 +6,7 @@ function Visited() {
 
   const { data, isLoading, } = useGetVisitedQuery()
 
-
+  
 
   if (isLoading) return <div>Loading...</div>
     return (
@@ -33,7 +33,7 @@ function Visited() {
                 { park.states }
             </td>
             <td>
-              <button className="btn shadow btn-primary">Delete</button>
+              <button className="btn shadow btn-primary" onClick={deleteItem(park.id)}>Delete</button>
             </td>
             <td>
               <button className="btn shadow btn-primary"><Link to={ `` } className="link-light" aria-current="page">Review</Link></button>

@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useGetAccountQuery, useGetVisitedQuery } from './app/apiSlice';
+import { useGetAccountQuery, useGetVisitedQuery, useDeleteVisitedMutation } from './app/apiSlice';
 
 function Visited() {
 
   const { data, isLoading, } = useGetVisitedQuery()
-
-
+  const { deleteItem } = useDeleteVisitedMutation()
 
   if (isLoading) return <div>Loading...</div>
     return (
@@ -33,7 +32,7 @@ function Visited() {
                 { park.states }
             </td>
             <td>
-              <button className="btn shadow btn-primary">Delete</button>
+              <button className="btn shadow btn-primary" onClick={deleteItem(park.id)}>Delete</button>
             </td>
             <td>
               <button className="btn shadow btn-primary"><Link to={ `` } className="link-light" aria-current="page">Review</Link></button>

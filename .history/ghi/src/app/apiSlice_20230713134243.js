@@ -22,6 +22,14 @@ export const npsApi = createApi({
       transformResponse: (response) => response.visited_list_items,
       providesTags: ["Visited"]
     }),
+    deleteVisited: builder.mutation({
+      query: (visited_list_item_id) => ({
+        url: `/api/visited-lists/${visited_list_item_id}`,
+        method: "DELETE",
+        credentials: "include",
+      }),
+      invalidatesTags: ["Visited"],
+    }),
     getAccount: builder.query({
       query: () => ({
         url: `/token`,

@@ -69,7 +69,5 @@ export const {
   useLoginMutation,
   useLogoutMutation,
   useGetAccountQuery,
-  useGetWishlistQuery,
-  useGetVisitedQuery,
-  useDeleteVisitedMutation
+  useGetWishlistQuery
 } = npsApi;
