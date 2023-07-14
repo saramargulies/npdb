@@ -28,7 +28,7 @@ export const npsApi = createApi({
         url: `api/wishlists?visited=true`,
         credentials: 'include'
       }),
-      transformResponse: (response) => response.wishlist_items,
+      transformResponse: (response) => response.visited_list_items,
       providesTags: ["Visited"]
     }),
     getAccount: builder.query({

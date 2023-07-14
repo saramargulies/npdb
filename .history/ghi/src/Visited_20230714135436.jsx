@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useGetVisitedQuery, useDeleteWishlistMutation } from './app/apiSlice';
+import { useGetVisitedQuery } from './app/apiSlice';
 
 function Visited() {
 

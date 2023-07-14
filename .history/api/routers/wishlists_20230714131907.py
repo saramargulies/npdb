@@ -10,8 +10,8 @@ router = APIRouter()
 
 @router.get("/api/wishlists", response_model=Wishlist)
 def wishlisted_parks_for_current_account(
-    visited: bool | None = None,
     account_data: dict = Depends(authenticator.get_current_account_data),
+    visited: bool | None = None,
     queries: WishlistQueries = Depends(),
 ):
     return {

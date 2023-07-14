@@ -16,7 +16,8 @@ def wishlisted_parks_for_current_account(
 ):
     return {
         "wishlist_items": queries.wishlist_for_account(
-            visited, account_id=account_data["id"]
+        visited,
+            account_id=account_data["id"]
         )
     }
 

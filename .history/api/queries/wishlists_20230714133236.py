@@ -8,12 +8,14 @@ class WishlistQueries(MongoQueries):
 
     def wishlist_for_account(self, visited: bool, account_id: str):
         results = []
-        for item in self.collection.find(
-            {"account_id": account_id, "visited": visited}
-        ):
-            item["id"] = str(item["_id"])
-            print("this is an item:", item)
-            results.append(item)
+        if (visited):
+            for item in self.collection.find({"account_id": account_id},):
+                item["id"] = str(item["_id"])
+                results.append(item)
+        elif (not visited):
+            for item in self.collection.find({"account_id": account_id}):
+                item["id"] = str(item["_id"])
+                results.append(item)
         return results
 
     def create(self, wishlist_item_in: WishlistItemIn, account_id: str):

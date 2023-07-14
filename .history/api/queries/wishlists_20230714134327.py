@@ -9,7 +9,7 @@ class WishlistQueries(MongoQueries):
     def wishlist_for_account(self, visited: bool, account_id: str):
         results = []
         for item in self.collection.find(
-            {"account_id": account_id, "visited": visited}
+            {"account_id": account_id, {"visited": visited}
         ):
             item["id"] = str(item["_id"])
             print("this is an item:", item)

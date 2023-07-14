@@ -9,10 +9,12 @@ export const npsApi = createApi({
   endpoints: (builder) => ({
     getWishlist: builder.query({
       query: () => ({
-        url: `api/wishlists?visited=false`,
+        url: 'api/wishlists',
         credentials: 'include',
+        visited: true
       }),
       transformResponse: (response) => response.wishlist_items,
+      console.log(response)
       providesTags: ["Wishlist"]
     }),
     deleteWishlist: builder.mutation({
@@ -25,10 +27,10 @@ export const npsApi = createApi({
     }),
     getVisited: builder.query({
       query: () => ({
-        url: `api/wishlists?visited=true`,
+        url: 'api/wishlists',
         credentials: 'include'
       }),
-      transformResponse: (response) => response.wishlist_items,
+      transformResponse: (response) => response.visited_list_items,
       providesTags: ["Visited"]
     }),
     getAccount: builder.query({

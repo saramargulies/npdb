@@ -10,7 +10,7 @@ app.include_router(authenticator.router, tags=["Accounts"])
 app.include_router(signup.signup, tags=["Accounts"])
 app.include_router(parks.router, tags=["Park Data"])
 app.include_router(wishlists.router, tags=["Wishlists"])
-app.include_router(reviews.router, tags=["Reviews"])
+app.include_router(visited.router, tags=["Visited List"])
 
 
 app.add_middleware(

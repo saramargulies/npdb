@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useGetVisitedQuery, useDeleteWishlistMutation } from './app/apiSlice';
+import { , useGetVisitedQuery } from './app/apiSlice';
 
 function Visited() {
 
   const { data, isLoading, } = useGetVisitedQuery()
-  const [deleteWish] = useDeleteWishlistMutation()
-
-  console.log(data)
+  const [deleteVisit] = useDeleteVisitedMutation()
 
   
   if (isLoading) return <div>Loading...</div>
@@ -35,7 +33,7 @@ function Visited() {
                 { park.states }
             </td>
             <td>
-              <button className="btn shadow btn-primary" onClick={() => deleteWish(park.id)}>Delete</button>
+              <button className="btn shadow btn-primary" onClick={() => deleteVisit(park.id)}>Delete</button>
             </td>
             <td>
               <button className="btn shadow btn-primary"><Link to={ `` } className="link-light" aria-current="page">Review</Link></button>

@@ -6,13 +6,10 @@ from queries.client import MongoQueries
 class WishlistQueries(MongoQueries):
     collection_name = "wishlist"
 
-    def wishlist_for_account(self, visited: bool, account_id: str):
+    def wishlist_for_account(self, visitedaccount_id: str):
         results = []
-        for item in self.collection.find(
-            {"account_id": account_id, "visited": visited}
-        ):
+        for item in self.collection.find({"account_id": account_id}):
             item["id"] = str(item["_id"])
-            print("this is an item:", item)
             results.append(item)
         return results
 
