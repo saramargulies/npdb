@@ -20,9 +20,10 @@ class ReviewQueries(MongoQueries):
             results.append(review)
         return results
 
-    def create(self, review_in: ReviewIn, account_id: str):
+    def create(self, review_in: ReviewIn, account_id: str, username: str):
         review = review_in.dict()
         review["account_id"] = account_id
+        review["username"] = username
         self.collection.insert_one(review)
         review["id"] = str(review["_id"])
         return review

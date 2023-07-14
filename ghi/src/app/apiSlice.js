@@ -85,7 +85,32 @@ export const npsApi = createApi({
           credentials: "include",
         };
       },
-      invalidatesTags: ["Account"],
+      invalidatesTags: ["Reviews"],
+    }),
+    getReviewsByPark: builder.query({
+      query: (parkCode) => ({
+        url: `api/parks/${parkCode}/reviews`,
+        credentials: 'include',
+      }),
+      transformResponse: (response) => response.reviews,
+      providesTags: ["Reviews"]
+    }),
+    updateParkReview: builder.mutation({
+      query: (review_id, {parkCode, review, rating}) => {
+        const body = {
+          "parkCode": parkCode,
+          "review": review,
+          "rating": rating
+        };
+        console.log(body)
+      return {
+          url: `/api/reviews/${review_id}`,
+          method: "PUT",
+          body,
+          credentials: "include",
+        };
+      },
+      invalidatesTags: ["Reviews"],
     }),
   }),
 });
@@ -98,5 +123,7 @@ export const {
   useGetWishlistQuery,
   useGetVisitedQuery,
   useSubmitReviewMutation,
-  useDeleteWishlistMutation
+  useDeleteWishlistMutation,
+  useGetReviewsByParkQuery,
+  useUpdateParkReviewMutation
 } = npsApi;

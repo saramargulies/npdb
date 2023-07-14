@@ -33,7 +33,7 @@ def create_review(
     account_data: dict = Depends(authenticator.get_current_account_data),
     queries: ReviewQueries = Depends(),
 ):
-    return queries.create(review_in=review_in, account_id=account_data["id"])
+    return queries.create(review_in=review_in, account_id=account_data["id"], username=account_data["username"])
 
 
 @router.delete("/api/reviews/{review_id}")
