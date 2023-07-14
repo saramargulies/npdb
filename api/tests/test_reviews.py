@@ -1,10 +1,11 @@
 from fastapi.testclient import TestClient
 from main import app
 from queries.reviews import ReviewQueries
-from models import WishlistItemIn
+from models import ReviewIn
 from authenticator import authenticator
 
 client = TestClient(app)
+
 
 def fake_get_current_account_data():
     return {"id": "1234", "username": "fakeuser"}
@@ -18,7 +19,7 @@ class FakeReviewQueries:
                 "parkCode": "string",
                 "review": "string",
                 "rating": 0,
-                "account_id": "64adebddcc01c264c551b480"
+                "account_id": "64adebddcc01c264c551b480",
             }
         ]
 
@@ -29,9 +30,29 @@ class FakeReviewQueries:
                 "parkCode": "string",
                 "review": "string",
                 "rating": 0,
-                "account_id": "64adebddcc01c264c551b480"
+                "account_id": "64adebddcc01c264c551b480",
             }
         ]
+
+    def create(self, review_in: ReviewIn, account_id: str):
+        review = review_in.dict()
+        review["account_id"] = account_id
+        review["id"] = "64b062b3476db219fdab8b86"
+        return review
+
+    def delete(self, review_id: str, account_id: str):
+        return True
+
+    def edit_review(
+        self, review_id: str, review_in: ReviewIn, account_id: str
+    ):
+        return {
+            "_id": "64b1b2d2f3adc678b83c320c",
+            "parkCode": "string",
+            "review": "strng",
+            "rating": 0,
+            "account_id": "649c70bc0aa79c6a1132a52b",
+        }
 
 
 def test_get_all_user_reviews():
@@ -52,7 +73,7 @@ def test_get_all_user_reviews():
                 "parkCode": "string",
                 "review": "string",
                 "rating": 0,
-                "account_id": "64adebddcc01c264c551b480"
+                "account_id": "64adebddcc01c264c551b480",
             }
         ]
     }
@@ -76,7 +97,63 @@ def test_get_all_park_reviews():
                 "parkCode": "string",
                 "review": "string",
                 "rating": 0,
-                "account_id": "64adebddcc01c264c551b480"
+                "account_id": "64adebddcc01c264c551b480",
             }
         ]
     }
+
+
+def test_post_reviews():
+    app.dependency_overrides[ReviewQueries] = FakeReviewQueries
+    app.dependency_overrides[
+        authenticator.get_current_account_data
+    ] = fake_get_current_account_data
+    review_in = {
+        "parkCode": "string",
+        "review": "string",
+        "rating": 0,
+    }
+
+    result = client.post("/api/reviews", json=review_in)
+    data = result.json()
+    assert data == {
+        "parkCode": "string",
+        "id": "64b062b3476db219fdab8b86",
+        "review": "string",
+        "rating": 0,
+        "account_id": "1234",
+    }
+    assert result.status_code == 200
+
+
+def test_delete_reviews():
+    app.dependency_overrides[ReviewQueries] = FakeReviewQueries
+    app.dependency_overrides[
+        authenticator.get_current_account_data
+    ] = fake_get_current_account_data
+
+    result = client.delete("/api/reviews/64b062b3476db219fdab8b86")
+    data = result.json()
+
+    assert result.status_code == 200
+    assert data == True
+
+
+def test_put_reviews():
+    app.dependency_overrides[ReviewQueries] = FakeReviewQueries
+    app.dependency_overrides[
+        authenticator.get_current_account_data
+    ] = fake_get_current_account_data
+    review_in = {"parkCode": "string", "review": "string", "rating": 0}
+    result = client.put("api/reviews/64b062b3476db219fdab8b86", json=review_in)
+    data = result.json()
+
+    assert data == {
+        "_id": "64b1b2d2f3adc678b83c320c",
+        "parkCode": "string",
+        "review": "strng",
+        "rating": 0,
+        "account_id": "649c70bc0aa79c6a1132a52b",
+    }
+
+    assert result.status_code == 200
