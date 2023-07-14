@@ -12,7 +12,7 @@ def fake_get_current_account_data():
 
 
 class FakeWishlistQueries:
-    def wishlist_for_account(self, account_id: str):
+    def wishlist_for_account(self, visited: bool, account_id: str):
         return [
             {
                 "id": "64b082d107a5be5f5ec35779",
