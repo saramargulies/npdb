@@ -37,3 +37,11 @@ Brad completed a major step in adding a clickable map on the homepage to link to
 We had a small blocker with the sign up form we completed yesterday in that I noticed it successfully redirected to the homepage, but did not save the new user to the database. We were trying to enter a new user with only username and password. When I added the "Full Name" field on the form it matched our backend requirements and worked correctly, saving new users to the database.
 
 It was another very productive day as we also completed the login page, the basic wishlist page, and the link from the state list page to the individual park details page. We have been working together collaboratively taking turns coding. When I say we "completed" the pages, I mean we have the basic functionality down and it is working as expected. We will work on the aestetics later by going back and adding the frontend styling.
+
+7/13
+We continued to add to the foundation of the project. Main additions today were adding the park review form and the basic park details page. The review form uses redux to change the state with mutations. This means we have also been adding to the apiSlice file. The park details page still needs to have the reviews added for each individual park.
+
+7/14
+Brad and I teamed up to complete writing the issues for the project. We wrote all these issues for some of the features we have already completed and also for the upcoming additions we haven't made yet. We also added the required code to add the reviews for each park to the details 
+
+Today was also a big day for unit tests. We worked together to complete the unit tests for the majority of the project. There may be more endpoints that we will add for extra features, which will need accompanying tests later.
