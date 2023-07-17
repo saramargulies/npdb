@@ -20,6 +20,7 @@ class FakeReviewQueries:
                 "review": "string",
                 "rating": 0,
                 "account_id": "64adebddcc01c264c551b480",
+                "username": "fakeuser"
             }
         ]
 
@@ -31,13 +32,15 @@ class FakeReviewQueries:
                 "review": "string",
                 "rating": 0,
                 "account_id": "64adebddcc01c264c551b480",
+                "username": "fakeuser"
             }
         ]
 
-    def create(self, review_in: ReviewIn, account_id: str):
+    def create(self, review_in: ReviewIn, account_id: str, username: str):
         review = review_in.dict()
         review["account_id"] = account_id
         review["id"] = "64b062b3476db219fdab8b86"
+        review["username"] = "fakeuser"
         return review
 
     def delete(self, review_id: str, account_id: str):
@@ -52,6 +55,7 @@ class FakeReviewQueries:
             "review": "strng",
             "rating": 0,
             "account_id": "649c70bc0aa79c6a1132a52b",
+            "username": "fakeuser"
         }
 
 
@@ -74,6 +78,7 @@ def test_get_all_user_reviews():
                 "review": "string",
                 "rating": 0,
                 "account_id": "64adebddcc01c264c551b480",
+                "username": "fakeuser"
             }
         ]
     }
@@ -98,6 +103,7 @@ def test_get_all_park_reviews():
                 "review": "string",
                 "rating": 0,
                 "account_id": "64adebddcc01c264c551b480",
+                "username": "fakeuser"
             }
         ]
     }
@@ -122,6 +128,7 @@ def test_post_reviews():
         "review": "string",
         "rating": 0,
         "account_id": "1234",
+        "username": "fakeuser"
     }
     assert result.status_code == 200
 
@@ -154,6 +161,7 @@ def test_put_reviews():
         "review": "strng",
         "rating": 0,
         "account_id": "649c70bc0aa79c6a1132a52b",
+        "username": "fakeuser"
     }
 
     assert result.status_code == 200
