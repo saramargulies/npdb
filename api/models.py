@@ -68,12 +68,14 @@ class ReviewIn(BaseModel):
     rating: int
 
 
+
 class ReviewOut(BaseModel):
     id: str
     parkCode: str
     review: str
     rating: int
     account_id: str
+    username: str
 
 
 class ParkReviewsList(BaseModel):

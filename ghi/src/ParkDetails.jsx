@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useGetReviewsByParkQuery } from './app/apiSlice';
+
 
 const ParkDetails = () => {
   let { code } = useParams();
 
   const [park, setPark] = useState();
-
+  const { data, isLoading, } = useGetReviewsByParkQuery(code)
+  console.log(data)
   const fetchData = async () => {
     console.log({ code });
     const url = `http://localhost:8000/api/parks/code/${code}`;
@@ -48,6 +51,22 @@ const ParkDetails = () => {
               return (
                 <tr key={activity.id}>
                   <td>{activity.name}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h2>Reviews</h2>
+        <table>
+          <tbody className="border-top border-dark-subtle">
+            {data.map((review) => {
+              return (
+                <tr key={review.id}>
+                  <td>{review.rating}</td>
+                  <td>{review.review}</td>
+                  <td>{review.username}</td>
                 </tr>
               );
             })}
