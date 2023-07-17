@@ -11,6 +11,7 @@ import NotFoundPage from "./NotFoundPage";
 import ParkDetails from "./ParkDetails";
 import ParksByStateList from "./ParksByStateList";
 import ReviewForm from "./ReviewForm";
+import Chat from "./Chat";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/park/:code" element={<ParkDetails />} />
           <Route path="/parks/:state" element={<ParksByStateList />} />
+          <Route path="/ws" element={<Chat />} />
         </Routes>
       </div>
       {/* <Footer /> */}
