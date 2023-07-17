@@ -1,5 +1,5 @@
 6/26
-Workded with team to get database implemented.
+Worked with team to get database implemented.
 
 6/27
 Auth completed and started working on user stories/list of project issues.
@@ -17,10 +17,16 @@ Wrote code for group to implement all endpoints for reviews functionality. Had a
 Wrote the UI code for the star rating selector. Finished Sean's work on the list of states along with the rest of the group. Worked in a group to update our issues.
 
 7/11
-Worked as a group on setting up front-end auth and Redux. Still have blockers when it comes to getting signup and signin to work.
+Worked as a group on setting up front-end auth and Redux. Still have blockers when it comes to getting sign up and sign in to work.
 
 7/12
-Implemented clickable US map for home page that redirects user to each page with list of all parks by state. Worked as a group and got both Redux and front-end auth functioning. Signup and signup are working and successfully creating users in the database. Group worked together to get park details page working but still have blocker with fetch data not working.
+Implemented clickable US map for home page that redirects user to each page with list of all parks by state. Worked as a group and got both Redux and front-end auth functioning. Sign up and sign in are working and successfully creating users in the database. Group worked together to get park details page working but still have blocker with fetch data not working.
 
 7/13
-Cleared blocker for park details page and corrected route in URL. Park details page in functioning.
+Cleared blocker for park details page and corrected route in URL. Park details page is functioning.
+
+7/14
+Got reviews tests passing. Worked as a group and all tests are passing. Completed all remaining issues for the rest of the project.
+
+7/17
+Created version one of live chat page. Worked in a group to update unit tests to reflect changes in back end from Friday and clear blocker with API key not being accessed properly. Cleared linting errors in preparation for build and deployment.
