@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import myReviews from "../MyReviews";
+import MyReviews from "../MyReviews";
 
 export const npsApi = createApi({
   reducerPath: "npsApi",
@@ -112,6 +112,14 @@ export const npsApi = createApi({
       },
       invalidatesTags: ["Reviews"],
     }),
+    getReviewsByAccount: builder.query({
+      query: () => ({
+        url: `api/reviews`,
+        credentials: 'include',
+      }),
+      transformResponse: (response) => response.reviews,
+      providesTags: ["Reviews"]
+    }),
   }),
 });
 
@@ -125,5 +133,6 @@ export const {
   useSubmitReviewMutation,
   useDeleteWishlistMutation,
   useGetReviewsByParkQuery,
-  useUpdateParkReviewMutation
+  useUpdateParkReviewMutation,
+  useGetReviewsByAccountQuery,
 } = npsApi;
