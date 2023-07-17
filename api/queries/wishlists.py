@@ -12,7 +12,6 @@ class WishlistQueries(MongoQueries):
             {"account_id": account_id, "visited": visited}
         ):
             item["id"] = str(item["_id"])
-            print("this is an item:", item)
             results.append(item)
         return results
 
