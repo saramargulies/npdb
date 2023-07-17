@@ -34,6 +34,7 @@ function App() {
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/visited" element={<Visited />} />
           <Route path="/reviews/mine" element={<MyReviews />} />
+          <Route path="/reviews/:code/reviews" element={<MyReviews />} />
           <Route path="/reviewform" element={<ReviewForm />} />
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/park/:code" element={<ParkDetails />} />

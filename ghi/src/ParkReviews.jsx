@@ -1,8 +1,8 @@
 import React from "react";
-import { useGetReviewsByAccountQuery } from "./app/apiSlice";
+import { useGetReviewsByParkQuery } from "./app/apiSlice";
 
 const MyReviews = () => {
-  const { data, isLoading } = useGetReviewsByAccountQuery();
+  const { data, isLoading } = useGetReviewsByParkQuery();
   console.log(data);
 
   if (isLoading) {
