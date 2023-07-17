@@ -20,7 +20,7 @@ class FakeReviewQueries:
                 "review": "string",
                 "rating": 0,
                 "account_id": "64adebddcc01c264c551b480",
-                "username": "fakeuser"
+                "username": "fakeuser",
             }
         ]
 
@@ -32,7 +32,7 @@ class FakeReviewQueries:
                 "review": "string",
                 "rating": 0,
                 "account_id": "64adebddcc01c264c551b480",
-                "username": "fakeuser"
+                "username": "fakeuser",
             }
         ]
 
@@ -55,7 +55,7 @@ class FakeReviewQueries:
             "review": "strng",
             "rating": 0,
             "account_id": "649c70bc0aa79c6a1132a52b",
-            "username": "fakeuser"
+            "username": "fakeuser",
         }
 
 
@@ -78,7 +78,7 @@ def test_get_all_user_reviews():
                 "review": "string",
                 "rating": 0,
                 "account_id": "64adebddcc01c264c551b480",
-                "username": "fakeuser"
+                "username": "fakeuser",
             }
         ]
     }
@@ -103,7 +103,7 @@ def test_get_all_park_reviews():
                 "review": "string",
                 "rating": 0,
                 "account_id": "64adebddcc01c264c551b480",
-                "username": "fakeuser"
+                "username": "fakeuser",
             }
         ]
     }
@@ -128,7 +128,7 @@ def test_post_reviews():
         "review": "string",
         "rating": 0,
         "account_id": "1234",
-        "username": "fakeuser"
+        "username": "fakeuser",
     }
     assert result.status_code == 200
 
@@ -143,7 +143,7 @@ def test_delete_reviews():
     data = result.json()
 
     assert result.status_code == 200
-    assert data == True
+    assert data is True
 
 
 def test_put_reviews():
@@ -161,7 +161,7 @@ def test_put_reviews():
         "review": "strng",
         "rating": 0,
         "account_id": "649c70bc0aa79c6a1132a52b",
-        "username": "fakeuser"
+        "username": "fakeuser",
     }
 
     assert result.status_code == 200

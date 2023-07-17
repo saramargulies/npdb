@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends
-from models import ListParksOut, ParkOut
+from models import ListParksOut
 from queries.parks import ParkQueries
 
 

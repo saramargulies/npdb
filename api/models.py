@@ -68,7 +68,6 @@ class ReviewIn(BaseModel):
     rating: int
 
 
-
 class ReviewOut(BaseModel):
     id: str
     parkCode: str

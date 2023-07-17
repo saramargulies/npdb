@@ -42,7 +42,7 @@ class ReviewQueries(MongoQueries):
     def edit_review(
         self, review_id: str, account_id: str, review_in: ReviewIn
     ):
-        result = self.collection.update_one(
+        self.collection.update_one(
             {"_id": ObjectId(review_id)}, {"$set": review_in.dict()}
         )
         return self.get_review_by_id(review_id)

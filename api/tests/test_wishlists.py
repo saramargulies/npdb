@@ -90,7 +90,7 @@ def test_delete_wishlists():
     data = result.json()
 
     assert result.status_code == 200
-    assert data == True
+    assert data is True
 
 
 def test_put_wishlists():
@@ -103,4 +103,4 @@ def test_put_wishlists():
     data = result.json()
 
     assert result.status_code == 200
-    assert data == True
+    assert data is True

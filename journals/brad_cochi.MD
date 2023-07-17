@@ -29,4 +29,4 @@ Cleared blocker for park details page and corrected route in URL. Park details p
 Got reviews tests passing. Worked as a group and all tests are passing. Completed all remaining issues for the rest of the project.
 
 7/17
-Created version one of live chat page. Worked in a group to update unit tests to reflect changes in back end from Friday and clear blocker with API key not being accessed properly. Cleared linting errors in preparation for build and deployment.
+Created version one of live chat page. Updated nav to include link to live chat page. Worked in a group to update unit tests to reflect changes in back end from Friday and clear blocker with API key not being accessed properly. Cleared linting errors in preparation for build and deployment.

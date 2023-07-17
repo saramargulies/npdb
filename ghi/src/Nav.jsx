@@ -29,6 +29,10 @@ const Nav = () => {
             {account && <NavLink to="reviews/mine">My Reviews</NavLink>}
             {!account && <NavLink to="login">My Reviews</NavLink>}
           </li>
+          <li>
+            {account && <NavLink to="/ws">Live Chat</NavLink>}
+            {!account && <NavLink to="login">Live Chat</NavLink>}
+          </li>
         </ul>
         {account && <button onClick={logout}>Log Out</button>}
       </div>

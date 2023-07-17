@@ -1,9 +1,8 @@
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect, WebSocket
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 import os
 from authenticator import authenticator
 from routers import signup, parks, wishlists, reviews
-import random
 
 
 app = FastAPI()
