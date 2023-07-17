@@ -1,7 +1,6 @@
 from fastapi.testclient import TestClient
 from main import app
 from queries.parks import ParkQueries
-from models import ParkOut, ListParksOut
 from authenticator import authenticator
 
 client = TestClient(app)
