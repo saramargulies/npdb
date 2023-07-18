@@ -3,18 +3,17 @@ import { useSubmitReviewMutation } from "./app/apiSlice";
 
 
 
-function ReviewForm(parkCode) {
+function ReviewForm(props) {
 
   const [submitReview] = useSubmitReviewMutation()
   const [review, setReview] = useState("");
   const [rating, setRating] = useState("");
-  // const [parkCode, setParkCode] = useState("");
+  const [parkCode, setParkCode] = useState("");
 
 
-  parkCode = parkCode.parkCode
   const handleSubmit = (e) => {
     e.preventDefault()
-    // console.log(parkCode.parkCode)
+    console.log(parkCode, review, rating)
     submitReview({parkCode, review, rating});
   }
 
@@ -28,10 +27,10 @@ function ReviewForm(parkCode) {
     setReview(name);
   }
 
-  // const handleParkCodeChange = (event) => {
-  //   const name = event.target.value;
-  //   setParkCode(name);
-  // };
+  const handleParkCodeChange = (event) => {
+    const name = event.target.value;
+    setParkCode(name);
+  };
 
   return (
     <div className="row">

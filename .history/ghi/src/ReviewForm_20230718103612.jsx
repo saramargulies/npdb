@@ -11,8 +11,8 @@ function ReviewForm(parkCode) {
   // const [parkCode, setParkCode] = useState("");
 
 
-  parkCode = parkCode.parkCode
   const handleSubmit = (e) => {
+    let parkCode = parkCode.parkCode
     e.preventDefault()
     // console.log(parkCode.parkCode)
     submitReview({parkCode, review, rating});

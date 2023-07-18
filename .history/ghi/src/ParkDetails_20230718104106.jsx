@@ -12,12 +12,14 @@ const ParkDetails = () => {
   const { data, isLoading, } = useGetReviewsByParkQuery(parkCode)
   console.log(data)
   const fetchData = async () => {
+    console.log({ parkCode });
     const url = `http://localhost:8000/api/parks/code/${parkCode}`;
 
     const response = await fetch(url);
     if (response.ok) {
       const data = await response.json();
       setPark(data.data[0]);
+      console.log(data.data[0]);
     }
   };
 
@@ -27,13 +29,7 @@ const ParkDetails = () => {
 
   //Need a bool that returns true if there is a review with a matching account_id in the review query return
   let reviewed = false
-  if (data){
-    for (let entry of data){
-      if (entry.account_id == account.id){
-        reviewed = true
-      }
-    }
-  }
+  for 
 
 
   if (!park) {
@@ -87,9 +83,8 @@ const ParkDetails = () => {
       </div>
     </div>
     <div>
-            {account && !reviewed && <ReviewForm parkCode={parkCode}></ReviewForm>}
-            {reviewed && <p>You've already reviewed this park! If you'd like to edit your review please visit your MyReviews page.</p>}
-
+            {account && <ReviewForm parkCode={parkCode}></ReviewForm>}
+            {}
     </div>
     </>
   );

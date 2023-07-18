@@ -3,18 +3,17 @@ import { useSubmitReviewMutation } from "./app/apiSlice";
 
 
 
-function ReviewForm(parkCode) {
+function ReviewForm(props) {
 
   const [submitReview] = useSubmitReviewMutation()
   const [review, setReview] = useState("");
   const [rating, setRating] = useState("");
-  // const [parkCode, setParkCode] = useState("");
+  const [parkCode, setParkCode] = useState("");
 
 
-  parkCode = parkCode.parkCode
   const handleSubmit = (e) => {
     e.preventDefault()
-    // console.log(parkCode.parkCode)
+    console.log(parkCode, review, rating)
     submitReview({parkCode, review, rating});
   }
 
@@ -28,10 +27,10 @@ function ReviewForm(parkCode) {
     setReview(name);
   }
 
-  // const handleParkCodeChange = (event) => {
-  //   const name = event.target.value;
-  //   setParkCode(name);
-  // };
+  const handleParkCodeChange = (event) => {
+    const name = event.target.value;
+    setParkCode(name);
+  };
 
   return (
     <div className="row">
@@ -39,10 +38,10 @@ function ReviewForm(parkCode) {
         <div className="shadow p-4 mt-4">
           <h1>Write a review</h1>
           <form onSubmit={handleSubmit} id="review-form">
-            {/* <div className="form-floating mb-3">
+            <div className="form-floating mb-3">
               <input value={parkCode} onChange={handleParkCodeChange} placeholder="Park Code" required type="text" name="parkCode" id="parkCode" className="form-control"/>
               <label htmlFor="parkCode">Park Code</label>
-            </div> */}
+            </div>
             <div className="form-floating mb-3">
               <input value={rating} onChange={handleRatingChange} placeholder="Rating 0-5" required type="integer" name="rating" id="rating" className="form-control"/>
               <label htmlFor="rating">Rating 0-5</label>

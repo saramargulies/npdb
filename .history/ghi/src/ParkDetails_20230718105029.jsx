@@ -88,7 +88,6 @@ const ParkDetails = () => {
     </div>
     <div>
             {account && !reviewed && <ReviewForm parkCode={parkCode}></ReviewForm>}
-            {reviewed && <p>You've already reviewed this park! If you'd like to edit your review please visit your MyReviews page.</p>}
 
     </div>
     </>

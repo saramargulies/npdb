@@ -29,11 +29,13 @@ const ParkDetails = () => {
   let reviewed = false
   if (data){
     for (let entry of data){
-      if (entry.account_id == account.id){
+      if (entry.account_id == account.account_id){
         reviewed = true
       }
     }
   }
+  console.log(reviewed)
+  console.log(account.account_id)
 
 
   if (!park) {
@@ -87,9 +89,8 @@ const ParkDetails = () => {
       </div>
     </div>
     <div>
-            {account && !reviewed && <ReviewForm parkCode={parkCode}></ReviewForm>}
-            {reviewed && <p>You've already reviewed this park! If you'd like to edit your review please visit your MyReviews page.</p>}
-
+            {account && <ReviewForm parkCode={parkCode}></ReviewForm>}
+            {}
     </div>
     </>
   );

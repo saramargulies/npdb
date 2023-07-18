@@ -18,6 +18,7 @@ const ParkDetails = () => {
     if (response.ok) {
       const data = await response.json();
       setPark(data.data[0]);
+      console.log(data.data[0]);
     }
   };
 
@@ -29,11 +30,12 @@ const ParkDetails = () => {
   let reviewed = false
   if (data){
     for (let entry of data){
-      if (entry.account_id == account.id){
+      if (account.account_id in entry){
         reviewed = true
       }
     }
   }
+  console.log(reviewed)
 
 
   if (!park) {
@@ -87,9 +89,8 @@ const ParkDetails = () => {
       </div>
     </div>
     <div>
-            {account && !reviewed && <ReviewForm parkCode={parkCode}></ReviewForm>}
-            {reviewed && <p>You've already reviewed this park! If you'd like to edit your review please visit your MyReviews page.</p>}
-
+            {account && <ReviewForm parkCode={parkCode}></ReviewForm>}
+            {}
     </div>
     </>
   );
