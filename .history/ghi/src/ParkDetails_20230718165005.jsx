@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useGetReviewsByParkQuery, useGetAccountQuery, useAddToWishlistMutation, useGetWishlistQuery, useGetVisitedQuery } from './app/apiSlice';
+import { useGetReviewsByParkQuery, useGetAccountQuery, useAddToWishlistMutation, useGetWishlistQuery, useget } from './app/apiSlice';
 import ReviewForm from "./ReviewForm";
 
 
 const ParkDetails = () => {
   const { data: account } = useGetAccountQuery()
   const { data: wishlist } = useGetWishlistQuery()
-  const { data: visited } = useGetVisitedQuery()
   const [addToWishlist] = useAddToWishlistMutation()
 
   let { parkCode } = useParams();
@@ -40,13 +39,8 @@ const ParkDetails = () => {
     }
   }
   let wishlisted = false
-  if (wishlist && visited && account){
+  if (wishlist && account){
     for (let entry of wishlist){
-      if (entry.fullName == park?.fullName){
-        wishlisted = true
-      }
-    }
-    for (let entry of visited){
       if (entry.fullName == park?.fullName){
         wishlisted = true
       }

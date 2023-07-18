@@ -62,7 +62,7 @@ export const npsApi = createApi({
           credentials: "include",
         };
       },
-      invalidatesTags: ["Wishlist", "Visited"],
+      invalidatesTags: ["Wishlist"],
     }),
     getAccount: builder.query({
       query: () => ({

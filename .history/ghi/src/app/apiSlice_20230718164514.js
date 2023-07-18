@@ -26,7 +26,6 @@ export const npsApi = createApi({
     addToWishlist: builder.mutation({
       query: ({ parkCode, fullName, states }) => {
         const body = {
-          "parkCode": parkCode,
           "fullName": fullName,
           "states": states,
           "visited": false
@@ -62,7 +61,7 @@ export const npsApi = createApi({
           credentials: "include",
         };
       },
-      invalidatesTags: ["Wishlist", "Visited"],
+      invalidatesTags: ["Wishlist"],
     }),
     getAccount: builder.query({
       query: () => ({

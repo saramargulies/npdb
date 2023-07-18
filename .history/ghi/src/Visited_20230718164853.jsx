@@ -38,7 +38,7 @@ function Visited() {
               <button className="btn shadow btn-primary" onClick={() => deleteWish(park.id)}>Delete</button>
             </td>
             <td>
-              <button className="btn shadow btn-primary"><Link to={ `/park/${park.parkCode}` } className="link-light" aria-current="page">Review</Link></button>
+              <button className="btn shadow btn-primary"><Link to={ `/park/` } className="link-light" aria-current="page">Review</Link></button>
             </td>
           </tr>
         );

@@ -40,13 +40,8 @@ const ParkDetails = () => {
     }
   }
   let wishlisted = false
-  if (wishlist && visited && account){
+  if (wishlist && account){
     for (let entry of wishlist){
-      if (entry.fullName == park?.fullName){
-        wishlisted = true
-      }
-    }
-    for (let entry of visited){
       if (entry.fullName == park?.fullName){
         wishlisted = true
       }

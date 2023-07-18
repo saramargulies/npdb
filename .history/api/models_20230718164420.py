@@ -29,7 +29,6 @@ class ListParksOut(BaseModel):
 
 
 class WishlistItemIn(BaseModel):
-    parkCode: str
     fullName: str
     states: str
     visited: bool = False
@@ -37,7 +36,6 @@ class WishlistItemIn(BaseModel):
 
 class WishlistItemOut(BaseModel):
     id: str
-    parkCode: str
     fullName: str
     states: str
     visited: bool = False
