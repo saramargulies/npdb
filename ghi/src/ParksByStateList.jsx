@@ -23,8 +23,8 @@ const ParksByStateList = () => {
   }, []);
   return (
     <>
-      <table className="table table-hover table-secondary table-striped border border-dark-subtle shadow container-fluid mt-5">
-        <tbody className="border-top border-dark-subtle">
+      <table>
+        <tbody>
           {parks.map((park) => {
             return (
               <tr key={park.id}>

@@ -21,7 +21,7 @@ export const npsApi = createApi({
         method: "DELETE",
         credentials: "include",
       }),
-      invalidatesTags: ["Wishlist"],
+      invalidatesTags: ["Wishlist", "Visited"],
     }),
     getVisited: builder.query({
       query: () => ({

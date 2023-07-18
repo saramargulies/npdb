@@ -18,7 +18,7 @@ const MyReviews = () => {
       <div>
         <h2>Reviews</h2>
         <table>
-          <tbody className="border-top border-dark-subtle">
+          <tbody>
             {data?.map((review) => {
               return (
                 <tr key={review.id}>

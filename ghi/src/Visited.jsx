@@ -9,13 +9,13 @@ function Visited() {
 
   console.log(data)
 
-  
+
   if (isLoading) return <div>Loading...</div>
     return (
     <>
     <h1>My Visited Parks</h1>
     <div>
-    <table className="table table-hover table-secondary table-striped border border-dark-subtle shadow container-fluid mt-5">
+    <table>
       <thead className="table-group-divider">
         <tr>
           <th>Park Name</th>
@@ -24,7 +24,7 @@ function Visited() {
           <th></th>
         </tr>
       </thead>
-      <tbody className="border-top border-dark-subtle">
+      <tbody>
         {data?.map(park => {
           return (
           <tr className="object-fit" key={ park.id }>

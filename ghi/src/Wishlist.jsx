@@ -14,8 +14,8 @@ function Wishlist() {
     <>
     <h1>My Wishlist</h1>
     <div>
-    <table className="table table-hover table-secondary table-striped border border-dark-subtle shadow container-fluid mt-5">
-      <thead className="table-group-divider">
+    <table>
+      <thead>
         <tr>
           <th>Park Name</th>
           <th>Location</th>
@@ -23,7 +23,7 @@ function Wishlist() {
           <th></th>
         </tr>
       </thead>
-      <tbody className="border-top border-dark-subtle">
+      <tbody>
         {data.map(park => {
           return (
           <tr className="object-fit" key={ park.id }>

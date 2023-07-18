@@ -30,9 +30,9 @@ function ReviewForm(parkProps) {
 
 
   return (
-    <div className="row">
-      <div className="offset-3 col-6">
-        <div className="shadow p-4 mt-4">
+    <div>
+      <div>
+        <div>
           <h1>Write a review</h1>
           <form onSubmit={handleSubmit} id="review-form">
             <div className="form-floating mb-3">
@@ -41,7 +41,7 @@ function ReviewForm(parkProps) {
             </div>
 
             <div className="mb-3">
-                    <textarea onChange={handleReviewChange}placeholder="Review" name="review" id="review" className="form-control" rows="3"></textarea>
+                    <textarea onChange={handleReviewChange}placeholder="Review" name="review" id="review" rows="3"></textarea>
                 </div>
 
             <button className="btn btn-primary">Submit</button>
