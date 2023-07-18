@@ -32,13 +32,13 @@ export const npsApi = createApi({
       };
         console.log(body)
         return {
-          url: "/api/wishlists",
+          url: "/api/reviews",
           method: "POST",
           body,
           credentials: "include",
         };
       },
-      invalidatesTags: ["Wishlist"],
+      invalidatesTags: ["Reviews"],
     }),
     getVisited: builder.query({
       query: () => ({
@@ -170,6 +170,5 @@ export const {
   useGetReviewsByParkQuery,
   useUpdateParkReviewMutation,
   useGetReviewsByAccountQuery,
-  useMarkAsVisitedMutation,
-  useAddToWishlistMutation
+  useMarkAsVisitedMutation
 } = npsApi;

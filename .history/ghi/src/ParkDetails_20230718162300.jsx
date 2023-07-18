@@ -13,6 +13,7 @@ const ParkDetails = () => {
 
   const [park, setPark] = useState();
   const { data, isLoading, } = useGetReviewsByParkQuery(parkCode)
+  console.log(data)
   const fetchData = async () => {
     const url = `http://localhost:8000/api/parks/code/${parkCode}`;
 
@@ -27,9 +28,6 @@ const ParkDetails = () => {
     fetchData();
   }, []);
 
-  let fullName = park?.fullName
-  let states = park?.states
-
   let reviewed = false
   if (data && account){
     for (let entry of data){
@@ -39,14 +37,13 @@ const ParkDetails = () => {
     }
   }
   let wishlisted = false
-  if (wishlist && account){
-    for (let entry of wishlist){
-      if (entry.fullName == park?.fullName){
-        wishlisted = true
+  if (data && account){
+    for (let entry of data){
+      if (entry.account_id == account.id){
+        reviewed = true
       }
     }
   }
-
   let parkProps = {
     "parkCode": parkCode,
     "parkName": park?.fullName
@@ -60,8 +57,7 @@ const ParkDetails = () => {
     <>
     <div>
       <h2>{park.fullName}</h2>
-      {!wishlisted && account && <button className="btn btn-primary" onClick={() => addToWishlist({fullName, states})}>Add to Wishlist</button>}
-      {wishlisted && account && <button disabled={true} className="btn btn-success">Added</button>}
+      <button onClick={addToWishlist}>Add to Wishlist</button>
       <div>{park.description}</div>
       {park.images.length > 0 && (
         <img

@@ -38,7 +38,7 @@ export const npsApi = createApi({
           credentials: "include",
         };
       },
-      invalidatesTags: ["Wishlist"],
+      invalidatesTags: [""],
     }),
     getVisited: builder.query({
       query: () => ({
@@ -170,6 +170,5 @@ export const {
   useGetReviewsByParkQuery,
   useUpdateParkReviewMutation,
   useGetReviewsByAccountQuery,
-  useMarkAsVisitedMutation,
-  useAddToWishlistMutation
+  useMarkAsVisitedMutation
 } = npsApi;

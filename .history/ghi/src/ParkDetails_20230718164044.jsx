@@ -60,8 +60,8 @@ const ParkDetails = () => {
     <>
     <div>
       <h2>{park.fullName}</h2>
-      {!wishlisted && account && <button className="btn btn-primary" onClick={() => addToWishlist({fullName, states})}>Add to Wishlist</button>}
-      {wishlisted && account && <button disabled={true} className="btn btn-success">Added</button>}
+      {!wishlisted && account && <button onClick={() => addToWishlist({fullName, states})}>Add to Wishlist</button>}
+      {wishlisted && account && <button disabled={True className="btn btn-success bi bi-check">Added</button>}
       <div>{park.description}</div>
       {park.images.length > 0 && (
         <img

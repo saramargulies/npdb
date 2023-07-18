@@ -170,6 +170,5 @@ export const {
   useGetReviewsByParkQuery,
   useUpdateParkReviewMutation,
   useGetReviewsByAccountQuery,
-  useMarkAsVisitedMutation,
-  useAddToWishlistMutation
+  useMarkAsVisitedMutation
 } = npsApi;

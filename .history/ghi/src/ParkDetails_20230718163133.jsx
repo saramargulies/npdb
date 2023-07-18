@@ -39,14 +39,14 @@ const ParkDetails = () => {
     }
   }
   let wishlisted = false
+  console.log(wishlist)
   if (wishlist && account){
     for (let entry of wishlist){
-      if (entry.fullName == park?.fullName){
+      if (entry.fullName == park?.id){
         wishlisted = true
       }
     }
   }
-
   let parkProps = {
     "parkCode": parkCode,
     "parkName": park?.fullName
@@ -60,8 +60,7 @@ const ParkDetails = () => {
     <>
     <div>
       <h2>{park.fullName}</h2>
-      {!wishlisted && account && <button className="btn btn-primary" onClick={() => addToWishlist({fullName, states})}>Add to Wishlist</button>}
-      {wishlisted && account && <button disabled={true} className="btn btn-success">Added</button>}
+      <button onClick={() => addToWishlist({fullName, states})}>Add to Wishlist</button>
       <div>{park.description}</div>
       {park.images.length > 0 && (
         <img

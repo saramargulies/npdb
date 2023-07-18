@@ -46,6 +46,7 @@ const ParkDetails = () => {
       }
     }
   }
+  console.log(wishlisted)
 
   let parkProps = {
     "parkCode": parkCode,
@@ -60,8 +61,7 @@ const ParkDetails = () => {
     <>
     <div>
       <h2>{park.fullName}</h2>
-      {!wishlisted && account && <button className="btn btn-primary" onClick={() => addToWishlist({fullName, states})}>Add to Wishlist</button>}
-      {wishlisted && account && <button disabled={true} className="btn btn-success">Added</button>}
+      <button onClick={() => addToWishlist({fullName, states})}>Add to Wishlist</button>
       <div>{park.description}</div>
       {park.images.length > 0 && (
         <img
