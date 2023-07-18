@@ -30,3 +30,6 @@ Got reviews tests passing. Worked as a group and all tests are passing. Complete
 
 7/17
 Created version one of live chat page. Updated nav to include link to live chat page. Worked in a group to update unit tests to reflect changes in back end from Friday and clear blocker with API key not being accessed properly. Cleared linting errors in preparation for build and deployment.
+
+7/18
+Worked as a group to integrate wishlist, visited and park details pages. Corrected reviews unit tests to match latest changes to models.
