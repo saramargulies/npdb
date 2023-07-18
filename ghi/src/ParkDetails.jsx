@@ -77,7 +77,7 @@ const ParkDetails = () => {
       )}
       <div>
         <table>
-          <tbody className="border-top border-dark-subtle">
+          <tbody>
             {park.activities.map((activity) => {
               return (
                 <tr key={activity.id}>
@@ -90,8 +90,8 @@ const ParkDetails = () => {
       </div>
       <div>
         <h2>Reviews</h2>
-        <table className="table table-success table-striped">
-          <tbody className="border-top border-dark-subtle">
+        <table>
+          <tbody>
             {data.map((review) => {
               return (
                 <tr key={review.id}>

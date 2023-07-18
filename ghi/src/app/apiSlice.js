@@ -21,7 +21,7 @@ export const npsApi = createApi({
         method: "DELETE",
         credentials: "include",
       }),
-      invalidatesTags: ["Wishlist"],
+      invalidatesTags: ["Wishlist", "Visited"],
     }),
     addToWishlist: builder.mutation({
       query: ({ parkCode, fullName, states }) => {
