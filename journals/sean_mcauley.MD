@@ -36,4 +36,10 @@ we reviewed the lectures on unit testing and began working together to write the
 
 7/17
 
-my teammates helped me figure out where the issue was, and a function did not match naming conventions across  the queries/routers files to the unit test, which was the cause of the bug from friday. we got that corrected and started merging the work some of us had done seperately until main was up to date and the same for all of us. 
+my teammates helped me figure out where the issue was, and a function did not match naming conventions across  the queries/routers files to the unit test, which was the cause of the bug from friday. we got that corrected and started merging the work some of us had done seperately until main was up to date and the same for all of us.
+
+wrote the front end code for the MyReviews page using Redux, and the only remaining blocker is to the if !data or if no reviews to display the message "No reviews for this account yet", as of now if i uncomment it back in, it automatically seems to think there are no reviews for the user yet.
+
+7/18
+
+worked as a team making sure all the delete and mark as visited and add to wishlist buttons work in the front end. had to update ther WishlistItemIn and WishlistItemOut model to include parkCode so that we could link the review button to the reviews page, and update the apiSlice file and adjust the unit test for that function.
