@@ -17,7 +17,7 @@ const MyReviews = () => {
     <div>
       <div>
         <h2>Reviews</h2>
-        <table className="table ">
+        <table className="table">
           <tbody className="border-top border-dark-subtle">
             {data?.map((review) => {
               return (

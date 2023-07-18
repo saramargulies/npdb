@@ -44,8 +44,9 @@ export const npsApi = createApi({
           credentials: "include",
         };
       },
-      invalidatesTags: ["Wishlist"],
+      invalidatesTags: ["Account"],
     }),
+
     getAccount: builder.query({
       query: () => ({
         url: `/token`,
@@ -153,5 +154,4 @@ export const {
   useGetReviewsByParkQuery,
   useUpdateParkReviewMutation,
   useGetReviewsByAccountQuery,
-  useMarkAsVisitedMutation
 } = npsApi;
