@@ -51,11 +51,6 @@ const ParkDetails = () => {
         <img
           src={park.images[0].url}
           alt={park.fullName}
-          style={{
-            width: "300px",
-            height: "300px",
-            border: "4px solid #C09B75",
-          }}
         />
       )}
       <div>
@@ -73,7 +68,7 @@ const ParkDetails = () => {
       </div>
       <div>
         <h2>Reviews</h2>
-        <table>
+        <table className="table table-success table-striped">
           <tbody className="border-top border-dark-subtle">
             {data.map((review) => {
               return (
