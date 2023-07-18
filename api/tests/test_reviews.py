@@ -15,24 +15,30 @@ class FakeReviewQueries:
     def reviews_for_account(self, account_id: str):
         return [
             {
-                "id": "64b062b3476db219fdab8b86",
-                "parkCode": "string",
+                "id": "64b6e161d6811a123ce06c6b",
+                "parkDetails": {
+                    "parkName": "string",
+                    "parkCode": "string",
+                },
                 "review": "string",
                 "rating": 0,
                 "account_id": "64adebddcc01c264c551b480",
-                "username": "fakeuser",
+                "username": "string",
             }
         ]
 
     def reviews_for_park(self, parkCode: str):
         return [
             {
-                "id": "64b062b3476db219fdab8b86",
-                "parkCode": "string",
+                "id": "64b6e161d6811a123ce06c6b",
+                "parkDetails": {
+                    "parkName": "string",
+                    "parkCode": "string",
+                },
                 "review": "string",
                 "rating": 0,
                 "account_id": "64adebddcc01c264c551b480",
-                "username": "fakeuser",
+                "username": "string",
             }
         ]
 
@@ -51,10 +57,10 @@ class FakeReviewQueries:
     ):
         return {
             "_id": "64b1b2d2f3adc678b83c320c",
-            "parkCode": "string",
-            "review": "strng",
+            "parkDetails": {"parkName": "string", "parkCode": "string"},
             "rating": 0,
-            "account_id": "649c70bc0aa79c6a1132a52b",
+            "review": "string",
+            "account_id": account_id,
             "username": "fakeuser",
         }
 
@@ -73,12 +79,15 @@ def test_get_all_user_reviews():
     assert data == {
         "reviews": [
             {
-                "id": "64b062b3476db219fdab8b86",
-                "parkCode": "string",
+                "id": "64b6e161d6811a123ce06c6b",
+                "parkDetails": {
+                    "parkName": "string",
+                    "parkCode": "string",
+                },
                 "review": "string",
                 "rating": 0,
                 "account_id": "64adebddcc01c264c551b480",
-                "username": "fakeuser",
+                "username": "string",
             }
         ]
     }
@@ -98,12 +107,15 @@ def test_get_all_park_reviews():
     assert data == {
         "reviews": [
             {
-                "id": "64b062b3476db219fdab8b86",
-                "parkCode": "string",
+                "id": "64b6e161d6811a123ce06c6b",
+                "parkDetails": {
+                    "parkName": "string",
+                    "parkCode": "string",
+                },
                 "review": "string",
                 "rating": 0,
                 "account_id": "64adebddcc01c264c551b480",
-                "username": "fakeuser",
+                "username": "string",
             }
         ]
     }
@@ -115,7 +127,7 @@ def test_post_reviews():
         authenticator.get_current_account_data
     ] = fake_get_current_account_data
     review_in = {
-        "parkCode": "string",
+        "parkDetails": {"parkName": "string", "parkCode": "string"},
         "review": "string",
         "rating": 0,
     }
@@ -123,8 +135,8 @@ def test_post_reviews():
     result = client.post("/api/reviews", json=review_in)
     data = result.json()
     assert data == {
-        "parkCode": "string",
         "id": "64b062b3476db219fdab8b86",
+        "parkDetails": {"parkName": "string", "parkCode": "string"},
         "review": "string",
         "rating": 0,
         "account_id": "1234",
@@ -151,16 +163,20 @@ def test_put_reviews():
     app.dependency_overrides[
         authenticator.get_current_account_data
     ] = fake_get_current_account_data
-    review_in = {"parkCode": "string", "review": "string", "rating": 0}
+    review_in = {
+        "parkDetails": {"parkName": "string", "parkCode": "string"},
+        "review": "string",
+        "rating": 0,
+    }
     result = client.put("api/reviews/64b062b3476db219fdab8b86", json=review_in)
     data = result.json()
 
     assert data == {
         "_id": "64b1b2d2f3adc678b83c320c",
-        "parkCode": "string",
-        "review": "strng",
+        "parkDetails": {"parkName": "string", "parkCode": "string"},
         "rating": 0,
-        "account_id": "649c70bc0aa79c6a1132a52b",
+        "review": "string",
+        "account_id": "1234",
         "username": "fakeuser",
     }
 
