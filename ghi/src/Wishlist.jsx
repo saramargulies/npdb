@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDeleteWishlistMutation, useGetWishlistQuery } from './app/apiSlice';
+import { useDeleteWishlistMutation, useGetWishlistQuery, useMarkAsVisitedMutation } from './app/apiSlice';
 
 function Wishlist() {
 
   const { data, isLoading, } = useGetWishlistQuery()
   const [deleteWish] = useDeleteWishlistMutation()
+  const [markAsVisited] = useMarkAsVisitedMutation()
 
   console.log(data)
 
@@ -37,7 +38,7 @@ function Wishlist() {
               <button className="btn shadow btn-primary" onClick={() => deleteWish(park.id)}>Delete</button>
             </td>
             <td>
-              <button className="btn shadow btn-primary"><Link to={ `` } className="link-light" aria-current="page">Mark as visited</Link></button>
+              <button className="btn shadow btn-primary" onClick={() => markAsVisited(park.id)}>Mark as visited</button>
             </td>
           </tr>
         );

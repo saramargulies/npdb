@@ -23,6 +23,24 @@ export const npsApi = createApi({
       }),
       invalidatesTags: ["Wishlist", "Visited"],
     }),
+    addToWishlist: builder.mutation({
+      query: ({ parkCode, fullName, states }) => {
+        const body = {
+          "parkCode": parkCode,
+          "fullName": fullName,
+          "states": states,
+          "visited": false
+      };
+        console.log(body)
+        return {
+          url: "/api/wishlists",
+          method: "POST",
+          body,
+          credentials: "include",
+        };
+      },
+      invalidatesTags: ["Wishlist"],
+    }),
     getVisited: builder.query({
       query: () => ({
         url: `api/wishlists?visited=true`,
@@ -30,6 +48,21 @@ export const npsApi = createApi({
       }),
       transformResponse: (response) => response.wishlist_items,
       providesTags: ["Visited"]
+    }),
+    markAsVisited: builder.mutation({
+      query: (wishlist_item_id) => {
+        const body = {
+          "visited": true,
+      };
+        console.log(body)
+        return {
+          url: `/api/wishlists/${wishlist_item_id}`,
+          method: "PUT",
+          body,
+          credentials: "include",
+        };
+      },
+      invalidatesTags: ["Wishlist", "Visited"],
     }),
     getAccount: builder.query({
       query: () => ({
@@ -138,4 +171,6 @@ export const {
   useGetReviewsByParkQuery,
   useUpdateParkReviewMutation,
   useGetReviewsByAccountQuery,
+  useMarkAsVisitedMutation,
+  useAddToWishlistMutation
 } = npsApi;
