@@ -1,5 +1,5 @@
 import { useSignupMutation } from "./app/apiSlice";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AlertError from './AlertError'
 
