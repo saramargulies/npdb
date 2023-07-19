@@ -16,6 +16,7 @@ class FakeWishlistQueries:
         return [
             {
                 "id": "64b082d107a5be5f5ec35779",
+                "parkCode": "string",
                 "fullName": "string",
                 "states": "string",
                 "visited": False,
@@ -50,6 +51,7 @@ def test_get_all_wishlists():
         "wishlist_items": [
             {
                 "id": "64b082d107a5be5f5ec35779",
+                "parkCode": "string",
                 "fullName": "string",
                 "states": "string",
                 "visited": False,
@@ -64,6 +66,7 @@ def test_post_wishlists():
         authenticator.get_current_account_data
     ] = fake_get_current_account_data
     wishlist_item_in = {
+        "parkCode": "string",
         "fullName": "string",
         "states": "string",
         "visited": False,
@@ -72,6 +75,7 @@ def test_post_wishlists():
     result = client.post("/api/wishlists", json=wishlist_item_in)
     data = result.json()
     assert data == {
+        "parkCode": "string",
         "fullName": "string",
         "id": "55555",
         "states": "string",
