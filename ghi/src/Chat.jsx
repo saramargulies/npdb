@@ -1,41 +1,74 @@
 import { useState, useEffect } from "react";
+import { useGetAccountQuery } from "./app/apiSlice";
 
 const App = () => {
   const [text, setText] = useState();
   const [messages, setMessages] = useState([]);
   const [socket, setSocket] = useState();
 
+  const account = useGetAccountQuery();
+  console.log({ outer_account: account });
+
   useEffect(() => {
-    const client_id = Date.now();
+    const account_id = account?.data?.id;
+    console.log({ account_id });
+    console.log({ account });
 
-    const ws = new WebSocket(`ws://localhost:8000/ws/${client_id}`);
+    if (account_id) {
+      const ws = new WebSocket(`ws://localhost:8000/ws/${account_id}`);
 
-    //Even Listener
-    ws.onmessage = (event) => {
-      console.log(event.data);
-      setMessages((prev) => [...prev, event.data]);
-    };
+      //Even Listener
+      ws.onmessage = (event) => {
+        const newMessage = JSON.parse(event.data);
+        console.log(newMessage);
+        setMessages((prev) => [...prev, newMessage]);
+      };
 
-    ws.onclose = () => {
-      console.log("disconnected");
-      const ws = new WebSocket(`ws://localhost:8000/ws/${client_id}`);
+      ws.onclose = () => {
+        console.log("disconnected");
+        const ws = new WebSocket(`ws://localhost:8000/ws/${account_id}`);
+        setSocket(ws);
+      };
+
       setSocket(ws);
-    };
 
-    setSocket(ws);
-    return () => {
-      ws.close();
-    };
-  }, []);
+      return () => {
+        ws.close();
+      };
+    }
+  }, [account]);
 
   return (
-    <>
+    <div>
       <input type="text" onChange={(e) => setText(e.target.value)}></input>
-      <button onClick={() => socket.send(JSON.stringify(text))}>Send</button>
-      {messages.map((message) => {
-        return <p key={message}>{message}</p>;
-      })}
-    </>
+      <button
+        onClick={() =>
+          socket.send(
+            JSON.stringify({
+              account_id: account.data.id,
+              full_name: account.data.full_name,
+              message: text,
+            })
+          )
+        }
+      >
+        Send
+      </button>
+      <div>
+        {messages.map((message) => {
+          const displayed_name =
+            message.full_name === account.data.full_name
+              ? "You"
+              : message.full_name;
+
+          return (
+            <p key={message.message}>
+              {displayed_name} wrote: {message.message}
+            </p>
+          );
+        })}
+      </div>
+    </div>
   );
 };
 
