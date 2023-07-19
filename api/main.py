@@ -1,6 +1,7 @@
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Depends
 from fastapi.middleware.cors import CORSMiddleware
 import os
+import json
 from authenticator import authenticator
 from routers import signup, parks, wishlists, reviews
 
@@ -57,16 +58,23 @@ class ConnectionManager:
 manager = ConnectionManager()
 
 
-@app.websocket("/ws/{client_id}")
-async def websocket_endpoint(websocket: WebSocket, client_id: int):
+@app.websocket("/ws/{account_id}")
+async def websocket_endpoint(websocket: WebSocket, account_id: str):
     await manager.connect(websocket)
     try:
         while True:
             data = await websocket.receive_text()
-            await manager.send_personal_message(
-                f"You wrote: {data}", websocket
+            parsed_data = json.loads(data)
+            print("DATA DATA DATA" + str(parsed_data))
+            await manager.broadcast(
+                json.dumps(
+                    {
+                        "account_id": account_id,
+                        "message": parsed_data["message"],
+                        "full_name": parsed_data["full_name"],
+                    }
+                )
             )
-            await manager.broadcast(f"Client #{client_id} says: {data}")
     except WebSocketDisconnect:
         manager.disconnect(websocket)
-        await manager.broadcast(f"Client #{client_id} left the chat")
+        await manager.broadcast(f"Client #{account_id} left the chat")
