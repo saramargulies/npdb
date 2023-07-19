@@ -17,6 +17,10 @@ function ReviewForm(parkProps) {
     submitReview({review_id, parkDetails, review, rating});
   }
 
+  const handleRatingChange = (event) => {
+    const value = event.target.value;
+    setRating(value);
+  }
 
   const handleReviewChange = (event) => {
     const name = event.target.value;
@@ -44,26 +48,9 @@ function ReviewForm(parkProps) {
         <div className="shadow p-4 mt-4">
           <h1>Edit your review</h1>
           <form onSubmit={handleSubmit} id="review-form">
-            <div className="flex">
-              {[...new Array(5)].map((_, i) => (
-                <div
-                  onClick={() => starClickHandler(i)}
-                  onMouseEnter={() => setHoveredStarIndex(i)}
-                  onMouseLeave={() => setHoveredStarIndex(-1)}
-                  className={`star-wrapper cursor-pointer ${
-                    hoveredStarIndex >= i || selectedStarIndex >= i ? "hovered" : ""
-                  }`}
-                  key={i}
-
-                >
-                  <span className="material-icons star-filled !text-5xl text-yellow-300">
-                    star
-                  </span>
-                  <span className="material-icons-outlined star-empty !text-5xl text-yellow-300">
-                    grade
-                  </span>
-                </div>
-              ))}
+            <div className="form-floating mb-3">
+              <input value={rating} onChange={handleRatingChange} placeholder="Rating 0-5" required type="integer" name="rating" id="rating" className="form-control"/>
+              <label htmlFor="rating">Rating 0-5</label>
             </div>
 
             <div className="mb-3">

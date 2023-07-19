@@ -24,17 +24,13 @@ function ReviewForm(parkProps) {
   let selectedStars = 0
 
   const [hoveredStarIndex, setHoveredStarIndex] = useState(-1);
-  const [selectedStarIndex, setSelectedStarIndex] = useState(selectedStars - 1);
+  const [selectedStarIndex, setSelectedStarIndex] = useState(selectedStars);
 
   const starClickHandler = (index) => {
     setSelectedStarIndex(index);
     setRating(index+1)
   };
-
-  let isDisabled=false
-  if (typeof(rating)=="string"){
-    isDisabled=true
-  }
+  console.log(rating)
 
   return (
     <div>
@@ -68,7 +64,7 @@ function ReviewForm(parkProps) {
                     <textarea onChange={handleReviewChange}placeholder="Review" name="review" id="review" rows="3"></textarea>
                 </div>
 
-            <button disabled={isDisabled} className="btn btn-primary">Submit</button>
+            <button className="btn btn-primary">Submit</button>
           </form>
         </div>
       </div>
