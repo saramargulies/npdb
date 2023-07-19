@@ -24,4 +24,9 @@ img {
   width: 200px
 }
 
-
+#detail-page-header{
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+  width: 100%
+}

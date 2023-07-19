@@ -65,13 +65,15 @@ const ParkDetails = () => {
   return (
     <>
     <div>
+      <div id= "detail-page-header" style={{backgroundImage: `url(${park.images[0].url})`}}>
       <h2>{park.fullName}</h2>
+      </div>
       {!wishlisted && account && <button className="btn btn-primary" onClick={() => addToWishlist({parkCode, fullName, states})}>Add to Wishlist</button>}
       {wishlisted && account && <button disabled={true} className="btn btn-success">Added</button>}
       <div>{park.description}</div>
       {park.images.length > 0 && (
         <img
-          src={park.images[0].url}
+          src={park.images[1].url}
           alt={park.fullName}
         />
       )}
