@@ -1,5 +1,5 @@
 import { useSignupMutation } from "./app/apiSlice";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AlertError from './AlertError'
 
@@ -12,13 +12,7 @@ const SignUp = () => {
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
 
-    useEffect(() => {
-        if (signupResult.error) {
-            setErrorMessage(signupResult?.error?.data?.detail)
-        }
-        if (signupResult.isSuccess) navigate('/');
-    }, [signupResult, navigate]);
-
+    
 
     const handleSubmit = (e) => {
         e.preventDefault()

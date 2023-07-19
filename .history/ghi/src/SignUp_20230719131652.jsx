@@ -1,5 +1,5 @@
 import { useSignupMutation } from "./app/apiSlice";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AlertError from './AlertError'
 
@@ -12,14 +12,6 @@ const SignUp = () => {
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
 
-    useEffect(() => {
-        if (signupResult.error) {
-            setErrorMessage(signupResult?.error?.data?.detail)
-        }
-        if (signupResult.isSuccess) navigate('/');
-    }, [signupResult, navigate]);
-
-
     const handleSubmit = (e) => {
         e.preventDefault()
         if (password !== passwordConfirmation) {
@@ -28,13 +20,19 @@ const SignUp = () => {
         }
 
         signup({username, password, full_name});
+        if (signupResult.isSuccess == false){
+            setErrorMessage(signupResult.error.data.detail)
+        } else if (signupResult.isSuccess == true){
+            navigate('/');
+        }
+        console.log(signupResult)
     }
     return (
         <div className="row">
             <div className="col-md-6 offset-md-3">
                 <h1>SignUp</h1>
                 <form onSubmit={handleSubmit}>
-                    {errorMessage && <AlertError>{errorMessage}</AlertError>}
+                    {/* {errorMessage && <AlertError>{errorMessage}</AlertError>} */}
                     <div className="mb-3">
                         <label htmlFor="SignUp__username" className="form-label">Username</label>
                         <input
@@ -63,7 +61,7 @@ const SignUp = () => {
                             id="SignUp__password"
                             onChange={(e) => {
                                 setPassword(e.target.value)
-                                setErrorMessage('')
+                                // setErrorMessage('')
                             }}
                         />
                     </div>
@@ -76,7 +74,7 @@ const SignUp = () => {
                             value={passwordConfirmation}
                             onChange={(e) => {
                                 setPasswordConfirmation(e.target.value)
-                                setErrorMessage('')
+                                // setErrorMessage('')
                             }}
                         />
                     </div>

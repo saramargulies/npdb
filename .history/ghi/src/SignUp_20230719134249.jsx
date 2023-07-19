@@ -1,5 +1,5 @@
 import { useSignupMutation } from "./app/apiSlice";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AlertError from './AlertError'
 
@@ -14,11 +14,18 @@ const SignUp = () => {
 
     useEffect(() => {
         if (signupResult.error) {
-            setErrorMessage(signupResult?.error?.data?.detail)
+            if (signupResult.error.status == 401) {
+                setErrorMessage(loginResult.error.data.detail);
+            }
         }
-        if (signupResult.isSuccess) navigate('/');
-    }, [signupResult, navigate]);
+        if (loginResult.isSuccess) navigate('/');
+    }, [loginResult]);
 
+        if (signupResult){
+            setErrorMessage(signupResult?.error?.data?.detail)
+        } else {
+            navigate('/');
+        }
 
     const handleSubmit = (e) => {
         e.preventDefault()
