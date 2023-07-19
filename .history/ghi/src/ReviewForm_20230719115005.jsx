@@ -31,9 +31,8 @@ function ReviewForm(parkProps) {
     setRating(index+1)
   };
 
-  let isDisabled=false
-  if (typeof(rating)=="string"){
-    isDisabled=true
+  if (isNaN(rating)){
+    return disabled=true
   }
 
   return (
@@ -68,7 +67,7 @@ function ReviewForm(parkProps) {
                     <textarea onChange={handleReviewChange}placeholder="Review" name="review" id="review" rows="3"></textarea>
                 </div>
 
-            <button disabled={isDisabled} className="btn btn-primary">Submit</button>
+            <button isDisabled={}className="btn btn-primary">Submit</button>
           </form>
         </div>
       </div>

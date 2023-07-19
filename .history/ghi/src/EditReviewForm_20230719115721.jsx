@@ -44,27 +44,7 @@ function ReviewForm(parkProps) {
         <div className="shadow p-4 mt-4">
           <h1>Edit your review</h1>
           <form onSubmit={handleSubmit} id="review-form">
-            <div className="flex">
-              {[...new Array(5)].map((_, i) => (
-                <div
-                  onClick={() => starClickHandler(i)}
-                  onMouseEnter={() => setHoveredStarIndex(i)}
-                  onMouseLeave={() => setHoveredStarIndex(-1)}
-                  className={`star-wrapper cursor-pointer ${
-                    hoveredStarIndex >= i || selectedStarIndex >= i ? "hovered" : ""
-                  }`}
-                  key={i}
 
-                >
-                  <span className="material-icons star-filled !text-5xl text-yellow-300">
-                    star
-                  </span>
-                  <span className="material-icons-outlined star-empty !text-5xl text-yellow-300">
-                    grade
-                  </span>
-                </div>
-              ))}
-            </div>
 
             <div className="mb-3">
                     <textarea onChange={handleReviewChange}placeholder="Review" name="review" id="review" className="form-control" rows="3"></textarea>

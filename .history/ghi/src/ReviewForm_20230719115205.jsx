@@ -30,10 +30,11 @@ function ReviewForm(parkProps) {
     setSelectedStarIndex(index);
     setRating(index+1)
   };
+  console.log(typeof(rating))
 
   let isDisabled=false
   if (typeof(rating)=="string"){
-    isDisabled=true
+    return isDisabled=true
   }
 
   return (

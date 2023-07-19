@@ -1,8 +1,11 @@
 import React, { useState,  } from 'react';
 import { useSubmitReviewMutation } from "./app/apiSlice";
-import "./stars.css";
+import StarSelector from './StarSelector';
+
+
 
 function ReviewForm(parkProps) {
+  console.log(parkProps)
   let parkName = parkProps.parkProps.parkName
   let parkCode = parkProps.parkProps.parkCode
 
@@ -16,25 +19,26 @@ function ReviewForm(parkProps) {
     submitReview({parkCode, parkName, review, rating});
   }
 
+  const handleRatingChange = (event) => {
+    const value = event.target.value;
+    setRating(value);
+  }
+
   const handleReviewChange = (event) => {
     const name = event.target.value;
     setReview(name);
   }
 
-  let selectedStars = 0
-
-  const [hoveredStarIndex, setHoveredStarIndex] = useState(-1);
+    const [hoveredStarIndex, setHoveredStarIndex] = useState(-1);
   const [selectedStarIndex, setSelectedStarIndex] = useState(selectedStars - 1);
-
   const starClickHandler = (index) => {
     setSelectedStarIndex(index);
-    setRating(index+1)
+    // Add selected stars to database
   };
 
-  let isDisabled=false
-  if (typeof(rating)=="string"){
-    isDisabled=true
-  }
+  let newRating = parseInt(rating, 10)
+  console.log(rating)
+
 
   return (
     <div>
@@ -51,8 +55,7 @@ function ReviewForm(parkProps) {
                   className={`star-wrapper cursor-pointer ${
                     hoveredStarIndex >= i || selectedStarIndex >= i ? "hovered" : ""
                   }`}
-                  key={i}
-
+                  key={i+1}
                 >
                   <span className="material-icons star-filled !text-5xl text-yellow-300">
                     star
@@ -63,12 +66,16 @@ function ReviewForm(parkProps) {
                 </div>
               ))}
             </div>
+            {/* <div className="form-floating mb-3">
+              <input value={rating} onChange={handleRatingChange} placeholder="Rating 0-5" required type="integer" name="rating" id="rating" className="form-control"/>
+              <label htmlFor="rating">Rating 0-5</label>
+            </div> */}
 
             <div className="mb-3">
                     <textarea onChange={handleReviewChange}placeholder="Review" name="review" id="review" rows="3"></textarea>
                 </div>
 
-            <button disabled={isDisabled} className="btn btn-primary">Submit</button>
+            <button className="btn btn-primary">Submit</button>
           </form>
         </div>
       </div>
