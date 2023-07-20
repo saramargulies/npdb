@@ -42,12 +42,12 @@ const App = () => {
   return (
     <>
     <section>
-      <div className="container container-fluid">
+      <div className="container py-5">
 
-        <div className="row container-fluid d-flex justify-content-center">
+        <div className="row d-flex justify-content-center">
           <div className="col-md-8 col-lg-6 col-xl-4">
 
-            <div className="card " id="chat1" >
+            <div className="card container-fluid" id="chat1" >
               <div
                 className="card-header d-flex justify-content-between align-items-center p-3 bg-info text-white border-bottom-0">
                 <i className="fas fa-angle-left"></i>

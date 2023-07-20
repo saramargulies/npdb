@@ -13,8 +13,9 @@ const HomePage = () => {
   return (
     <>
       <div
-        className="container-fluid"
+        className="container-fluid img-fluid"
         style={{
+          // backgroundColor: "#26b1c6",
           backgroundImage: `url("https://vastphotos.com/files/uploads/photos/11076/high-resolution-yellowstone-photo-l.jpg?v=20220712073521")`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",

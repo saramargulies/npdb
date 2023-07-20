@@ -42,9 +42,11 @@ const App = () => {
   return (
     <>
     <section>
-      <div className="container container-fluid">
+      <div className="container                             <p key={message.message}>
+                              {displayed_name} wrote: {message.message}
+                            </p>">
 
-        <div className="row container-fluid d-flex justify-content-center">
+        <div className="row d-flex justify-content-center">
           <div className="col-md-8 col-lg-6 col-xl-4">
 
             <div className="card " id="chat1" >

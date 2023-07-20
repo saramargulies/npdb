@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useGetAccountQuery } from "./app/apiSlice";
-import './chat.css'
 
 const App = () => {
   const [text, setText] = useState();
@@ -8,12 +7,12 @@ const App = () => {
   const [socket, setSocket] = useState();
 
   const account = useGetAccountQuery();
-  // console.log({ outer_account: account });
+  console.log({ outer_account: account });
 
   useEffect(() => {
     const account_id = account?.data?.id;
-    // console.log({ account_id });
-    // console.log({ account });
+    console.log({ account_id });
+    console.log({ account });
 
     if (account_id) {
       const ws = new WebSocket(`ws://localhost:8000/ws/${account_id}`);
@@ -21,12 +20,12 @@ const App = () => {
       //Even Listener
       ws.onmessage = (event) => {
         const newMessage = JSON.parse(event.data);
-        // console.log(newMessage);
+        console.log(newMessage);
         setMessages((prev) => [...prev, newMessage]);
       };
 
       ws.onclose = () => {
-        // console.log("disconnected");
+        console.log("disconnected");
         const ws = new WebSocket(`ws://localhost:8000/ws/${account_id}`);
         setSocket(ws);
       };
@@ -42,9 +41,9 @@ const App = () => {
   return (
     <>
     <section>
-      <div className="container container-fluid">
+      <div className="container py-5">
 
-        <div className="row container-fluid d-flex justify-content-center">
+        <div className="row d-flex justify-content-center">
           <div className="col-md-8 col-lg-6 col-xl-4">
 
             <div className="card " id="chat1" >
@@ -54,7 +53,7 @@ const App = () => {
                 <p className="mb-0 fw-bold">Live chat</p>
                 <i className="fas fa-times"></i>
               </div>
-              <div className="card-body chat-body">
+              <div className="card-body">
                 <div>
                       <input type="text" onChange={(e) => setText(e.target.value)}></input>
                       <button
@@ -80,12 +79,14 @@ const App = () => {
                           return (
                                   <div className="d-flex flex-row justify-content-start mb-4">
                                     <div className="ms-3">
-                                        <div className="mask">                            <p key={message.message}>
-                                              {displayed_name} wrote: {message.message}
-                                            </p>
+                                      <div className="bg-image">
+                                        <div className="mask"></div>
+                                        </div>
                                       </div>
-                                    </div>
                                   </div>
+                            <p key={message.message}>
+                              {displayed_name} wrote: {message.message}
+                            </p>
                           );
                         })}
                       </div>

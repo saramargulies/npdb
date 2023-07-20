@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useGetAccountQuery } from "./app/apiSlice";
-import './chat.css'
 
 const App = () => {
   const [text, setText] = useState();
@@ -42,9 +41,9 @@ const App = () => {
   return (
     <>
     <section>
-      <div className="container container-fluid">
+      <div className="container py-5">
 
-        <div className="row container-fluid d-flex justify-content-center">
+        <div className="row d-flex justify-content-center">
           <div className="col-md-8 col-lg-6 col-xl-4">
 
             <div className="card " id="chat1" >
@@ -54,7 +53,7 @@ const App = () => {
                 <p className="mb-0 fw-bold">Live chat</p>
                 <i className="fas fa-times"></i>
               </div>
-              <div className="card-body chat-body">
+              <div className="card-body ">
                 <div>
                       <input type="text" onChange={(e) => setText(e.target.value)}></input>
                       <button

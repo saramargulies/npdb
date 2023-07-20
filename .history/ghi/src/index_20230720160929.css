@@ -19,6 +19,9 @@ code {
     monospace;
 }
 
+/* .img-fluid {
+  height: 200px;
+} */
 
 #detail-page-header {
   background-repeat: no-repeat;
@@ -40,9 +43,9 @@ code {
   height: 100px;
 }
 
-.navbar-toggler {
-  color: #8c7558;
-}
+/* .navbar-toggler {
+  background-color: #8c7558;
+} */
 
 .link {
   color:#8c7558

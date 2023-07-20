@@ -15,6 +15,7 @@ const HomePage = () => {
       <div
         className="container-fluid"
         style={{
+          // backgroundColor: "#26b1c6",
           backgroundImage: `url("https://vastphotos.com/files/uploads/photos/11076/high-resolution-yellowstone-photo-l.jpg?v=20220712073521")`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
@@ -29,7 +30,7 @@ const HomePage = () => {
             title=""
             defaultFill="#f2e2c4"
             height="60rem"
-            width="auto"
+
             onClick={mapHandler}
           />
         </div>
