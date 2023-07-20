@@ -1,6 +1,6 @@
 import React from "react";
 import { useGetReviewsByAccountQuery } from "./app/apiSlice";
-import EditReviewForm from "./EditReviewForm"
+import EditReviewForm from "./EditReviewForm";
 
 const MyReviews = () => {
   const { data, isLoading } = useGetReviewsByAccountQuery();
@@ -9,9 +9,6 @@ const MyReviews = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  // if (!data) {
-  //   return <div>No reviews for this account yet!</div>
-  // }
 
   return (
     <div>
@@ -26,11 +23,47 @@ const MyReviews = () => {
                   <td>{review.rating}</td>
                   <td>{review.review}</td>
                   <td>
-                    <button>
-                      Edit
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop"
+                    >
+                      Edit Your Review
                     </button>
-                    <div>
-                      <EditReviewForm parkProps={[review.id, review.parkDetails]}></EditReviewForm>
+
+                    <div
+                      class="modal fade"
+                      id="staticBackdrop"
+                      data-bs-backdrop="static"
+                      data-bs-keyboard="false"
+                      tabindex="-1"
+                      aria-labelledby="staticBackdropLabel"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1
+                              class="modal-title fs-5"
+                              id="staticBackdropLabel"
+                            >
+                              Edit Your Review
+                            </h1>
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <div class="modal-body">
+                            <EditReviewForm
+                              parkProps={[review.id, review.parkDetails]}
+                            ></EditReviewForm>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </td>
                 </tr>
