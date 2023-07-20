@@ -52,7 +52,6 @@ const ParkDetails = () => {
       }
     }
   }
-  console.log(park)
 
   let parkProps = {
     "parkCode": parkCode,
@@ -74,7 +73,7 @@ const ParkDetails = () => {
       <div>{park.description}</div>
       {park.images.length > 0 && (
         <img
-          src={park.images[1]?.url}
+          src={park?.images[1].url}
           alt={park.fullName}
         />
       )}
