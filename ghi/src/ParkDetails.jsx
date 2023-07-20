@@ -92,7 +92,7 @@ const ParkDetails = () => {
         )}
         <div>{park.description}</div>
         {park.images.length > 0 && (
-          <img src={park.images[1].url} alt={park.fullName} />
+          <img src={park.images[1]?.url} alt={park.fullName} />
         )}
         <div>
           <table>
