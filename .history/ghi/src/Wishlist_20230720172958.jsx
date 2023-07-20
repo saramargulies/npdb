@@ -7,8 +7,8 @@ function Wishlist() {
   const { data, isLoading, } = useGetWishlistQuery()
   const [deleteWish] = useDeleteWishlistMutation()
   const [markAsVisited] = useMarkAsVisitedMutation()
-  console.log(data)
 
+  console.log(data)
 
   if (isLoading) return <div>Loading...</div>
     return (
@@ -20,6 +20,8 @@ function Wishlist() {
         <tr>
           <th>Park Name</th>
           <th>Location</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -30,6 +32,7 @@ function Wishlist() {
                 { park.fullName }
             </td>
             <td>
+                {console.log(park.states)}
                 { park.states }
             </td>
             <td>

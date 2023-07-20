@@ -12,12 +12,14 @@ function Visited() {
   return (
     <>
       <h1>My Visited Parks</h1>
-      <div className="container shadow table-responsive font-link pt-2">
-        <table className="table table-sm table-striped table-bordered">
+      <div>
+        <table>
           <thead className="table-group-divider">
             <tr>
               <th>Park Name</th>
               <th>Location</th>
+              {/* <th></th>
+              <th></th> */}
             </tr>
           </thead>
           <tbody>
