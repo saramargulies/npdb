@@ -7,19 +7,21 @@ function Wishlist() {
   const { data, isLoading, } = useGetWishlistQuery()
   const [deleteWish] = useDeleteWishlistMutation()
   const [markAsVisited] = useMarkAsVisitedMutation()
-  console.log(data)
 
+  console.log(data)
 
   if (isLoading) return <div>Loading...</div>
     return (
     <>
     <h1>My Wishlist</h1>
     <div className="container shadow table-responsive font-link pt-2">
-    <table className="table table-sm table-striped table-bordered">
+    <table className="table table-striped table-bordered">
       <thead>
         <tr>
           <th>Park Name</th>
           <th>Location</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>

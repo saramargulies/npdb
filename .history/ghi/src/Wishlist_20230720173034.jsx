@@ -20,6 +20,8 @@ function Wishlist() {
         <tr>
           <th>Park Name</th>
           <th>Location</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>

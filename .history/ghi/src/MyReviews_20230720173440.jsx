@@ -12,8 +12,8 @@ const MyReviews = () => {
 
   return (
     <div>
-      <h2>Reviews</h2>
-      <div className="container shadow table-responsive font-link pt-2">
+      <div>
+        <h2>Reviews</h2>
         <table className="table table-sm table-striped table-bordered">
           <tbody>
             {data?.map((review) => {
