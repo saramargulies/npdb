@@ -12,6 +12,7 @@ import ParkDetails from "./ParkDetails";
 import ParksByStateList from "./ParksByStateList";
 import ReviewForm from "./ReviewForm";
 import Chat from "./Chat";
+import Footer from "./Footer"
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
         <Route path="/parks/:state" element={<ParksByStateList />} />
         <Route path="/ws" element={<Chat />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </BrowserRouter>
   );
 }
