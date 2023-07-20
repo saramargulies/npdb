@@ -19,9 +19,9 @@ code {
     monospace;
 }
 
-/* .img-fluid {
+.img-fluid {
   height: 200px;
-} */
+}
 
 #detail-page-header {
   background-repeat: no-repeat;
@@ -37,17 +37,3 @@ code {
 #welcome-card-body {
   background-color: #f2e2c4;
 }
-
-.logo-img {
-  width: 100px;
-  height: 100px;
-}
-
-.navbar-toggler {
-  background-color: #8c7558;
-}
-
-.link {
-  color:#8c7558
-}
-

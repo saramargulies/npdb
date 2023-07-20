@@ -57,6 +57,7 @@ const ParkDetails = () => {
       }
     }
   }
+  console.log(park);
 
   let parkProps = {
     parkCode: parkCode,

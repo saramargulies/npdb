@@ -23,36 +23,41 @@ const ParksByStateList = () => {
   }, []);
   return (
     <>
-    <h1>National Parks in {state}</h1>
-    <div className="m-5">
       <table>
         <tbody>
           {parks.map((park) => {
             return (
               <tr key={park.id}>
                 <td>
-                  <div className="card mb-3">
+                  <div className="card mb-3" style="max-width: 540px;">
                     <div className="row g-0">
-                      <div className="col-md-4 d-flex align-items-center">
-                        {park.images.length > 0 && (
-                         <img className="img-fluid rounded-start" src={park.images[0].url} alt={park.fullName} />
-                      )}
+                      <div className="col-md-4">
+                        <img src="..." className="img-fluid rounded-start" alt="...">
                       </div>
                       <div className="col-md-8">
                         <div className="card-body">
-                          <h5 className="card-title">         <Link className="link stretched-link" to={`/park/${park.parkCode}`}>{park.fullName}</Link></h5>
-                          <p className="card-text">{park.description}</p>
+                          <h5 className="card-title">Card title</h5>
+                          <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                          <p className="card-text"><small className="text-body-secondary">Last updated 3 mins ago</small></p>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <Link to={`/park/${park.parkCode}`}>{park.fullName}</Link>
+
+
+                </td>
+                <td>{park.description}</td>
+                <td>
+                  {park.images.length > 0 && (
+                    <img src={park.images[0].url} alt={park.fullName} />
+                  )}
                 </td>
               </tr>
             );
           })}
         </tbody>
       </table>
-      </div>
     </>
   );
 };
