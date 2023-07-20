@@ -6,10 +6,12 @@ const Nav = () => {
   const { data: account, error, isLoading } = useGetAccountQuery();
   const [logout, logoutResponse] = useLogoutMutation();
 
-  // console.log({ account });
+  if (isLoading) {
+    return null;
+  }
 
   return (
-    <nav className="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+    <nav className="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg p-0">
       <div className="container-custom container">
         <div className="navbar-brand">
           <span className="navbar-caption-wrap">
@@ -47,63 +49,87 @@ const Nav = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                {account && (
+                <NavLink
+                  to={account ? "wishlist" : "login"}
+                  className="nav-link link display-7"
+                >
+                  Wishlist
+                </NavLink>
+                {/* {account && (
                   <NavLink to="wishlist" className="nav-link link display-7">
                     Wishlist
                   </NavLink>
                 )}{" "}
-                {!account && <NavLink to="login">Wishlist</NavLink>}
+              {!account && <NavLink to="login">Wishlist</NavLink>} */}
               </li>
               <li className="nav-item">
-                {account && (
+                <NavLink
+                  to={account ? "visited" : "login"}
+                  className="nav-link link display-7"
+                >
+                  Visited
+                </NavLink>
+                {/* {account && (
                   <NavLink to="visited" className="nav-link link display-7">
                     Visited
                   </NavLink>
                 )}{" "}
-                {!account && <NavLink to="login">Visited</NavLink>}
+                {!account && <NavLink to="login">Visited</NavLink>} */}
               </li>
               <li className="nav-item">
-                {account && (
+                <NavLink
+                  to={account ? "reviews/mine" : "login"}
+                  className="nav-link link display-7"
+                >
+                  My Reviews
+                </NavLink>
+                {/* {account && (
                   <NavLink
                     to="reviews/mine"
                     className="nav-link link display-7"
                   >
                     My Reviews
-                  </NavLink>
-                )}{" "}
-                {!account && <NavLink to="login">My Reviews</NavLink>}
+                  </NavLink> */}
+                {/* {!account && <NavLink to="login">My Reviews</NavLink>} */}
               </li>
               <li className="nav-item">
-                {account && (
+                <NavLink
+                  to={account ? "/ws" : "login"}
+                  className="nav-link link display-7"
+                >
+                  Live Chat
+                </NavLink>
+                {/* {account && (
                   <NavLink to="/ws" className="nav-link link display-7">
                     Live Chat
                   </NavLink>
                 )}{" "}
-                {!account && <NavLink to="login">Live Chat</NavLink>}
-              </li>
-            </ul>
-          </div>
-          {account && <button onClick={logout}>Log Out</button>}
-
-          <div className="navbar-nav-container">
-            <ul className="navbar-nav nav-dropdown" data-app-modern-menu="true">
-              <li className="nav-item">
-                {!account && (
-                  <NavLink to="signup" className="btn btn-primary display-7">
-                    Sign Up
-                  </NavLink>
-                )}
-              </li>
-              <li className="nav-item">
-                {!account && (
-                  <NavLink to="login" className="btn btn-primary display-7">
-                    Login
-                  </NavLink>
-                )}
+                {!account && <NavLink to="login">Live Chat</NavLink>} */}
               </li>
             </ul>
           </div>
         </div>
+        {!account && (
+          <div className="navbar-nav-container">
+            <ul className="navbar-nav nav-dropdown" data-app-modern-menu="true">
+              <li className="nav-item">
+                <NavLink to="signup" className="btn btn-primary display-7 me-3">
+                  Sign Up
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="login" className="btn btn-primary display-7">
+                  Login
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+        )}
+        {account && (
+          <button className="btn btn-primary display-7" onClick={logout}>
+            Log Out
+          </button>
+        )}
       </div>
       {/* <div>
         <ul>
