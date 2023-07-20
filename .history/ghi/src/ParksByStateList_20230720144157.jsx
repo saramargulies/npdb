@@ -33,14 +33,14 @@ const ParksByStateList = () => {
                 <td>
                   <div className="card mb-3">
                     <div className="row g-0">
-                      <div className="col-md-4 d-flex align-items-center">
+                      <div className="col-md-4 ">
                         {park.images.length > 0 && (
                          <img className="img-fluid rounded-start" src={park.images[0].url} alt={park.fullName} />
                       )}
                       </div>
                       <div className="col-md-8">
                         <div className="card-body">
-                          <h5 className="card-title">         <Link className="link stretched-link" to={`/park/${park.parkCode}`}>{park.fullName}</Link></h5>
+                          <h5 className="card-title">         <Link to={`/park/${park.parkCode}`}>{park.fullName}</Link></h5>
                           <p className="card-text">{park.description}</p>
                         </div>
                       </div>
