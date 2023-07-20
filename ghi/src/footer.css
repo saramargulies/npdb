@@ -1,0 +1,38 @@
+.footer {
+  background-color: #bfdccf;
+  padding: 20px;
+}
+
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+
+.column {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+
+.bottom {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+.image {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+
+.list {
+  list-style: none;
+  padding: 0;
+}
