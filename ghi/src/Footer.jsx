@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container">
         <div className="column">
           <h4>
-            <img src="NPSlogo.png" alt="NPS logo" className="image" />
+            <img src="/NPSlogo.png" alt="NPS logo" className="image" />
           </h4>
           <ul className="list">
             <li>This website was made using</li>

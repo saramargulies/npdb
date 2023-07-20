@@ -17,7 +17,7 @@ const Nav = () => {
           <span className="navbar-caption-wrap">
             <div>
               <NavLink to="/" className="nav-link link display-7">
-                <img src="NPDBlogo.png" className="logo-img" alt="logo" />
+                <img src="/NPDBlogo.png" className="logo-img" alt="logo" />
               </NavLink>
             </div>
           </span>
