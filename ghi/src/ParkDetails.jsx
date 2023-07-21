@@ -68,8 +68,10 @@ const ParkDetails = () => {
     return <div>Loading...</div>;
   }
 
+
   return (
     <>
+    <div className= "container-fluid">
       <div>
         <div
           id="detail-page-header"
@@ -90,22 +92,45 @@ const ParkDetails = () => {
             Added
           </button>
         )}
-        <div>{park.description}</div>
-        {park.images.length > 0 && (
-          <img src={park.images[1]?.url} alt={park.fullName} />
-        )}
-        <div>
-          <table>
-            <tbody>
+        <td>
+          <div className="card mb-3">
+            <div className="row g-0">
+              <div className="col-md-4 d-flex align-items-center">
+                {park.images.length > 0 && (
+                    <img className="img-fluid rounded-start" id="detail-image"
+                                  src={park.images[1].url} alt={park.fullName} />
+                                )}
+            </div>
+              <div className="col-md-8">
+                <div className="card-body">
+                  <h5 className="card-title">
+                    {park.fullName}
+
+                  </h5>
+                    <p className="card-text">{park.description}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          </td>
+          <div>
+            <h5>
+              Activities
+            </h5>
+            <div>
               {park.activities.map((activity) => {
                 return (
-                  <tr key={activity.id}>
+                  <div className="container">
+                    <div className="row">
+                  <div className="col-3" key={activity.id}>
                     <td>{activity.name}</td>
-                  </tr>
+                  </div>
+                  </div>
+                  </div>
                 );
               })}
-            </tbody>
-          </table>
+            </div>
+          </div>
         </div>
         <div>
           <h2>Reviews</h2>
