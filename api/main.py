@@ -4,6 +4,7 @@ import os
 import json
 from authenticator import authenticator
 from routers import signup, parks, wishlists, reviews
+import uuid
 
 
 app = FastAPI()
@@ -56,6 +57,7 @@ async def websocket_endpoint(websocket: WebSocket, account_id: str):
             await manager.broadcast(
                 json.dumps(
                     {
+                        "id": str(uuid.uuid4()),
                         "account_id": account_id,
                         "message": parsed_data["message"],
                         "full_name": parsed_data["full_name"],
