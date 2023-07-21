@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import USAMap from "react-usa-map";
+import "./map.css";
 
 const HomePage = () => {
   let navigate = useNavigate();
