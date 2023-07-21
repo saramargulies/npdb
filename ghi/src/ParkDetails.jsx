@@ -67,64 +67,66 @@ const ParkDetails = () => {
     return <div>Loading...</div>;
   }
 
-
   return (
     <>
-    <div className= "container-fluid">
-      <div>
-        <div
-          id="detail-page-header"
-          style={{ backgroundImage: `url(${park.images[0].url})` }}
-        >
-          <h2>{park.fullName}</h2>
-        </div>
-        {!wishlisted && account && (
-          <button
-            className="btn btn-primary"
-            onClick={() => addToWishlist({ parkCode, fullName, states })}
+      <div className="container-fluid">
+        <div>
+          <div
+            id="detail-page-header"
+            style={{ backgroundImage: `url(${park.images[0].url})` }}
           >
-            Add to Wishlist
-          </button>
-        )}
-        {wishlisted && account && (
-          <button disabled={true} className="btn btn-success">
-            Added
-          </button>
-        )}
-        <td>
-          <div className="card mb-3">
-            <div className="row g-0">
-              <div className="col-md-4 d-flex align-items-center">
-                {park.images.length > 0 && (
-                    <img className="img-fluid rounded-start" id="detail-image"
-                                  src={park.images[1].url} alt={park.fullName} />
-                                )}
-            </div>
-              <div className="col-md-8">
-                <div className="card-body">
-                  <h5 className="card-title">
-                    {park.fullName}
-
-                  </h5>
+            <h2>{park.fullName}</h2>
+          </div>
+          {!wishlisted && account && (
+            <button
+              className="btn btn-primary"
+              onClick={() => addToWishlist({ parkCode, fullName, states })}
+            >
+              Add to Wishlist
+            </button>
+          )}
+          {wishlisted && account && (
+            <button disabled={true} className="btn btn-success">
+              Added
+            </button>
+          )}
+          <td>
+            <div className="card mb-3">
+              <div className="row g-0">
+                <div className="col-md-4 d-flex align-items-center">
+                  {park.images.length > 0 && (
+                    <img
+                      className="img-fluid rounded-start"
+                      id="detail-image"
+                      src={
+                        park.images[1]?.url
+                          ? park.images[1]?.url
+                          : "/NPDBlogo.png"
+                      }
+                      alt={park.fullName}
+                    />
+                  )}
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">{park.fullName}</h5>
                     <p className="card-text">{park.description}</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
           </td>
           <div>
-            <h5>
-              Activities
-            </h5>
+            <h5>Activities</h5>
             <div>
               {park.activities.map((activity) => {
                 return (
                   <div className="container">
                     <div className="row">
-                  <div className="col-3" key={activity.id}>
-                    <td>{activity.name}</td>
-                  </div>
-                  </div>
+                      <div className="col-3" key={activity.id}>
+                        <td>{activity.name}</td>
+                      </div>
+                    </div>
                   </div>
                 );
               })}
@@ -148,14 +150,16 @@ const ParkDetails = () => {
           </table>
         </div>
       </div>
-      <button
-        type="button"
-        className="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop"
-      >
-        Leave a Review
-      </button>
+      {account && (
+        <button
+          type="button"
+          className="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+        >
+          Leave a Review
+        </button>
+      )}
 
       <div
         className="modal fade"
