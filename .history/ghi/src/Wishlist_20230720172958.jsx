@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useDeleteWishlistMutation, useGetWishlistQuery, useMarkAsVisitedMutation } from './app/apiSlice';
 
 function Wishlist() {
@@ -6,7 +8,7 @@ function Wishlist() {
   const [deleteWish] = useDeleteWishlistMutation()
   const [markAsVisited] = useMarkAsVisitedMutation()
 
-
+  console.log(data)
 
   if (isLoading) return <div>Loading...</div>
     return (
@@ -18,6 +20,8 @@ function Wishlist() {
         <tr>
           <th>Park Name</th>
           <th>Location</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -28,6 +32,7 @@ function Wishlist() {
                 { park.fullName }
             </td>
             <td>
+                {console.log(park.states)}
                 { park.states }
             </td>
             <td>

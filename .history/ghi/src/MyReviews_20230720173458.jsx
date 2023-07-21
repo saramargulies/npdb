@@ -4,6 +4,7 @@ import EditReviewForm from "./EditReviewForm";
 
 const MyReviews = () => {
   const { data, isLoading } = useGetReviewsByAccountQuery();
+  console.log(data);
 
   if (isLoading) {
     return <div>Loading...</div>;

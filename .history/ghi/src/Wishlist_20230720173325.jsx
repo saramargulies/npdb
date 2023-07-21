@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useDeleteWishlistMutation, useGetWishlistQuery, useMarkAsVisitedMutation } from './app/apiSlice';
 
 function Wishlist() {
@@ -5,7 +7,7 @@ function Wishlist() {
   const { data, isLoading, } = useGetWishlistQuery()
   const [deleteWish] = useDeleteWishlistMutation()
   const [markAsVisited] = useMarkAsVisitedMutation()
-
+  console.log(data)
 
 
   if (isLoading) return <div>Loading...</div>

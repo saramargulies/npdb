@@ -1,3 +1,4 @@
+
 import { useDeleteWishlistMutation, useGetWishlistQuery, useMarkAsVisitedMutation } from './app/apiSlice';
 
 function Wishlist() {

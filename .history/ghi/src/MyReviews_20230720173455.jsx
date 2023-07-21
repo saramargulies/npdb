@@ -4,6 +4,7 @@ import EditReviewForm from "./EditReviewForm";
 
 const MyReviews = () => {
   const { data, isLoading } = useGetReviewsByAccountQuery();
+  console.log(data);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -12,7 +13,7 @@ const MyReviews = () => {
   return (
     <div>
       <h2>Reviews</h2>
-      <div className="container shadow table-responsive font-link pt-2">
+      <div>
         <table className="table table-sm table-striped table-bordered">
           <tbody>
             {data?.map((review) => {

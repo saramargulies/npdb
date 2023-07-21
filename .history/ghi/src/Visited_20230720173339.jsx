@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useGetVisitedQuery, useDeleteWishlistMutation } from "./app/apiSlice";
 
@@ -5,12 +6,14 @@ function Visited() {
   const { data, isLoading } = useGetVisitedQuery();
   const [deleteWish] = useDeleteWishlistMutation();
 
+  console.log(data);
+
   if (isLoading) return <div>Loading...</div>;
   return (
     <>
       <h1>My Visited Parks</h1>
       <div className="container shadow table-responsive font-link pt-2">
-        <table className="table table-sm table-striped table-bordered">
+        <table>
           <thead className="table-group-divider">
             <tr>
               <th>Park Name</th>

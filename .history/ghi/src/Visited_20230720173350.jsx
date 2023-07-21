@@ -1,9 +1,12 @@
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useGetVisitedQuery, useDeleteWishlistMutation } from "./app/apiSlice";
 
 function Visited() {
   const { data, isLoading } = useGetVisitedQuery();
   const [deleteWish] = useDeleteWishlistMutation();
+
+  console.log(data);
 
   if (isLoading) return <div>Loading...</div>;
   return (
