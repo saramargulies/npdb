@@ -175,10 +175,10 @@ function ActivityColumn(props) {
                     <td><strong>User:</strong> {review.username} </td>
                     <td><strong>Rating:</strong> {review.rating} </td>
                   </tr>
-                  <tr>
-                  <td><strong>Review:</strong> {review.review} </td>
-                  </tr>
-                  </>
+                    <tr>
+                    <td><strong>Review:</strong> {review.review} </td>
+                    </tr>
+                    </>
                 );
               })}
             </tbody>

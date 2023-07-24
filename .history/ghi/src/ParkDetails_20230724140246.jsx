@@ -170,15 +170,11 @@ function ActivityColumn(props) {
             <tbody>
               {data.map((review) => {
                 return (
-                  <>
                   <tr key={review.id}>
                     <td><strong>User:</strong> {review.username} </td>
                     <td><strong>Rating:</strong> {review.rating} </td>
+                    <td><strong>Review:</strong> {review.review} </td>
                   </tr>
-                  <tr>
-                  <td><strong>Review:</strong> {review.review} </td>
-                  </tr>
-                  </>
                 );
               })}
             </tbody>
