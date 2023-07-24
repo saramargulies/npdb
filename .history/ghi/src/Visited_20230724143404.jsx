@@ -1,28 +1,24 @@
-import {
-  useDeleteWishlistMutation,
-  useGetWishlistQuery,
-  useMarkAsVisitedMutation,
-} from "./app/apiSlice";
+import { Link } from "react-router-dom";
+import { useGetVisitedQuery, useDeleteWishlistMutation } from "./app/apiSlice";
 
-function Wishlist() {
-  const { data, isLoading } = useGetWishlistQuery();
+function Visited() {
+  const { data, isLoading } = useGetVisitedQuery();
   const [deleteWish] = useDeleteWishlistMutation();
-  const [markAsVisited] = useMarkAsVisitedMutation();
 
   if (isLoading) return <div>Loading...</div>;
   return (
     <>
-      <h1>My Wishlist</h1>
+      <h1>My Visited Parks</h1>
       <div className="container shadow table-responsive font-link pt-2">
         <table className="table table-sm table-striped table-bordered">
-          <thead>
+          <thead className="table-group-divider">
             <tr>
               <th>Park Name</th>
               <th>Location</th>
             </tr>
           </thead>
           <tbody>
-            {data.map((park) => {
+            {data?.map((park) => {
               return (
                 <tr className="object-fit" key={park.id}>
                   <td>{park.fullName}</td>
@@ -36,11 +32,14 @@ function Wishlist() {
                     </button>
                   </td>
                   <td>
-                    <button
-                      className="btn shadow btn-primary"
-                      onClick={() => markAsVisited(park.id)}
-                    >
-                      Mark as visited
+                    <button className="btn shadow btn-primary">
+                      <Link
+                        to={`/park/${park.parkCode}`}
+                        className="link-light"
+                        aria-current="page"
+                      >
+                        Review
+                      </Link>
                     </button>
                   </td>
                 </tr>
@@ -53,4 +52,4 @@ function Wishlist() {
   );
 }
 
-export default Wishlist;
+export default Visited;

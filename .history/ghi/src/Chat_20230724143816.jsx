@@ -23,6 +23,7 @@ const App = () => {
 
   const inputListener = (event) => {
     if (event.code === "Enter" || event.code === "NumpadEnter") {
+      console.log("Enter key was pressed. Run your function.");
       event.preventDefault();
       handleSend();
     }

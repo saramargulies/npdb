@@ -23,6 +23,7 @@ const App = () => {
 
   const inputListener = (event) => {
     if (event.code === "Enter" || event.code === "NumpadEnter") {
+      console.log("Enter key was pressed. Run your function.");
       event.preventDefault();
       handleSend();
     }
@@ -36,10 +37,11 @@ const App = () => {
 
       ws.onmessage = (event) => {
         const newMessage = JSON.parse(event.data);
+        console.log(newMessage);
         setMessages((prev) => [...prev, newMessage]);
       };
 
-      ws.onclose = () => {
+      ws.onclose = () => {s
         const ws = new WebSocket(`ws://localhost:8000/ws/${account_id}`);
         setSocket(ws);
       };

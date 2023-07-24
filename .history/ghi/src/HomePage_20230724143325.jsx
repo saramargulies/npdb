@@ -7,6 +7,7 @@ const HomePage = () => {
   let navigate = useNavigate();
 
   function mapHandler(event) {
+    console.log(event.target.dataset.name);
     navigate(`/parks/${event.target.dataset.name}`);
   }
 

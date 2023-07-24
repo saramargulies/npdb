@@ -53,6 +53,7 @@ export const npsApi = createApi({
         const body = {
           visited: true,
         };
+        console.log(body);
         return {
           url: `/api/wishlists/${wishlist_item_id}`,
           method: "PUT",
@@ -111,6 +112,7 @@ export const npsApi = createApi({
           review: review,
           rating: rating,
         };
+        console.log(body);
         return {
           url: "/api/reviews",
           method: "POST",
@@ -135,6 +137,7 @@ export const npsApi = createApi({
           review: review,
           rating: rating,
         };
+        console.log(body);
         return {
           url: `/api/reviews/${review_id}`,
           method: "PUT",

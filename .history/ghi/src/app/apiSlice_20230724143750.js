@@ -135,6 +135,7 @@ export const npsApi = createApi({
           review: review,
           rating: rating,
         };
+        console.log(body);
         return {
           url: `/api/reviews/${review_id}`,
           method: "PUT",

@@ -14,6 +14,7 @@ const ParksByStateList = () => {
     if (response.ok) {
       const data = await response.json();
       setParks(data.data);
+      console.log(data);
     }
   };
 

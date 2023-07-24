@@ -23,6 +23,7 @@ const App = () => {
 
   const inputListener = (event) => {
     if (event.code === "Enter" || event.code === "NumpadEnter") {
+      console.log("Enter key was pressed. Run your function.");
       event.preventDefault();
       handleSend();
     }
@@ -30,16 +31,21 @@ const App = () => {
 
   useEffect(() => {
     const account_id = account?.data?.id;
+    // console.log({ account_id });
+    // console.log({ account });
 
     if (account_id) {
       const ws = new WebSocket(`ws://localhost:8000/ws/${account_id}`);
 
+      //Even Listener
       ws.onmessage = (event) => {
         const newMessage = JSON.parse(event.data);
+        console.log(newMessage);
         setMessages((prev) => [...prev, newMessage]);
       };
 
       ws.onclose = () => {
+        // console.log("disconnected");
         const ws = new WebSocket(`ws://localhost:8000/ws/${account_id}`);
         setSocket(ws);
       };
