@@ -43,3 +43,11 @@ wrote the front end code for the MyReviews page using Redux, and the only remain
 7/18
 
 worked as a team making sure all the delete and mark as visited and add to wishlist buttons work in the front end. had to update ther WishlistItemIn and WishlistItemOut model to include parkCode so that we could link the review button to the reviews page, and update the apiSlice file and adjust the unit test for that function.
+
+7/20
+
+we worked as a team on styling some aspects of the projects, I took the reigns on starting to style the park details page but ran into a blocker with how to get the list of activities/amenities to split up into 2 or 3 different columns when using the dynamic list of activities pulled from NPS API.
+
+7/24
+
+got past the blocker on the park details page as a team and we passed the activities collumns into a useState and iterated over the activities to display in 3 collumns. We combed through the whole project for formatting and unused imports and console logs.
