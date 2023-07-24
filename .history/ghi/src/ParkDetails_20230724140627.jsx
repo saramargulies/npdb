@@ -119,55 +119,6 @@ function ActivityColumn(props) {
               Added
             </button>
           )}
-                          {account && (
-        <button
-          type="button"
-          className="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#staticBackdrop"
-        >
-          Leave a Review
-        </button>
-      )}
-
-      <div
-        className="modal fade"
-        id="staticBackdrop"
-        data-bs-backdrop="static"
-        data-bs-keyboard="false"
-        tabIndex="-1"
-        aria-labelledby="staticBackdropLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h1 className="modal-title fs-5" id="staticBackdropLabel">
-                Leave a Review
-              </h1>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">
-              <div>
-                {account && !reviewed && (
-                  <ReviewForm parkProps={parkProps}></ReviewForm>
-                )}
-                {reviewed && (
-                  <p>
-                    You've reviewed this park! If you'd like to edit your review
-                    please visit your MyReviews page.
-                  </p>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
             <div className="card mb-3">
               <div className="row g-0">
                 <div className="col-md-4 d-flex align-items-center">
@@ -226,7 +177,55 @@ function ActivityColumn(props) {
           </table>
         </div>
       </div>
+      {account && (
+        <button
+          type="button"
+          className="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+        >
+          Leave a Review
+        </button>
+      )}
 
+      <div
+        className="modal fade"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabIndex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="staticBackdropLabel">
+                Leave a Review
+              </h1>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <div>
+                {account && !reviewed && (
+                  <ReviewForm parkProps={parkProps}></ReviewForm>
+                )}
+                {reviewed && (
+                  <p>
+                    You've reviewed this park! If you'd like to edit your review
+                    please visit your MyReviews page.
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

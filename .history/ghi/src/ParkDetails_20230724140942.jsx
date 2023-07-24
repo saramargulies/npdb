@@ -119,7 +119,46 @@ function ActivityColumn(props) {
               Added
             </button>
           )}
-                          {account && (
+            <div className="card mb-3">
+              <div className="row g-0">
+                <div className="col-md-4 d-flex align-items-center">
+                  {park.images.length > 0 && (
+                    <img
+                      className="img-fluid rounded-start"
+                      id="detail-image"
+                      src={
+                        park.images[1]?.url
+                          ? park.images[1]?.url
+                          : "/NPDBlogo.png"
+                      }
+                      alt={park.fullName}
+                    />
+                  )}
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">{park.fullName}</h5>
+                    <p className="card-text">{park.description}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div>
+            <h5>Activities</h5>
+            <div>
+              <div className="row">
+                {activityColumns.map((activityList, index) => {
+            return (
+              <ActivityColumn key={index} list={activityList} />
+            );
+          })}
+        </div>
+            </div>
+          </div>
+        </div>
+        <div>
+
+                {account && (
         <button
           type="button"
           className="btn btn-primary"
@@ -168,45 +207,6 @@ function ActivityColumn(props) {
           </div>
         </div>
       </div>
-            <div className="card mb-3">
-              <div className="row g-0">
-                <div className="col-md-4 d-flex align-items-center">
-                  {park.images.length > 0 && (
-                    <img
-                      className="img-fluid rounded-start"
-                      id="detail-image"
-                      src={
-                        park.images[1]?.url
-                          ? park.images[1]?.url
-                          : "/NPDBlogo.png"
-                      }
-                      alt={park.fullName}
-                    />
-                  )}
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body">
-                    <h5 className="card-title">{park.fullName}</h5>
-                    <p className="card-text">{park.description}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <div>
-            <h5>Activities</h5>
-            <div>
-              <div className="row">
-                {activityColumns.map((activityList, index) => {
-            return (
-              <ActivityColumn key={index} list={activityList} />
-            );
-          })}
-        </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <h2>Reviews</h2>
           <table className='table'>
             <tbody>
               {data.map((review) => {
