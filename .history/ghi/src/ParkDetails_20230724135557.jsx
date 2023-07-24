@@ -61,7 +61,7 @@ function ActivityColumn(props) {
     <div className="col">
       {props.list.map(activity => {
         return (
-          <div key={activity} className="card mb-3 p-1 shadow"> {activity}</div>
+          <div key={activity.id} className="card mb-3 shadow"> {activity.name}</div>
         );
       })}
     </div>
@@ -156,6 +156,7 @@ function ActivityColumn(props) {
             <div>
               <div className="row">
                 {activityColumns.map((activityList, index) => {
+                {console.log(index)}
             return (
               <ActivityColumn key={index} list={activityList} />
             );

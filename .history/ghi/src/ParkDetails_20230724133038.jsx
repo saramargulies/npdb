@@ -15,7 +15,6 @@ const ParkDetails = () => {
   const { data: wishlist } = useGetWishlistQuery();
   const { data: visited } = useGetVisitedQuery();
   const [addToWishlist] = useAddToWishlistMutation();
-  const [activities, setActivities] = useState([])
   const [activityColumns, setActivityColumns] = useState([[], [], []]);
 
   let { parkCode } = useParams();
@@ -28,40 +27,26 @@ const ParkDetails = () => {
     const response = await fetch(url);
     if (response.ok) {
       const data = await response.json();
-      setPark(data.data[0])
-      setActivities(data.data[0].activities)
+      setPark(data.data[0]);
       
-      const columns = [[], [], []];
-        let i = 0;
-        for (const activity of data.data[0].activities) {
-            columns[i].push(activity.name);
-            i = i + 1;
-            if (i > 2) {
-              i = 0;
-            }
-          }
-      setActivityColumns(columns)
     }
   };
-  console.log(activityColumns)
-
-      // Set the state to the new list of three lists of
-      // conferences
-      // setActivityColumns(columns);
+  
  
 
   useEffect(() => {
     fetchData();
   }, []);
 
+  console.log(park)
 
 
-function ActivityColumn(props) {
+function ActivityColumn() {
   return (
     <div className="col">
-      {props.list.map(activity => {
+      {park.activities.map(activity => {
         return (
-          <div key={activity} className="card mb-3 p-1 shadow"> {activity}</div>
+          <div key={activity} className="card mb-3 shadow"> {activity}</div>
         );
       })}
     </div>
@@ -155,11 +140,11 @@ function ActivityColumn(props) {
             <h5>Activities</h5>
             <div>
               <div className="row">
-                {activityColumns.map((activityList, index) => {
+                {/* {activityColumns.map((activityList, index) => {
             return (
               <ActivityColumn key={index} list={activityList} />
             );
-          })}
+          })} */}
         </div>
 
               {/* {park.activities.map((activity) => {

@@ -33,7 +33,7 @@ const ParkDetails = () => {
       
       const columns = [[], [], []];
         let i = 0;
-        for (const activity of data.data[0].activities) {
+        for (const activity of activities) {
             columns[i].push(activity.name);
             i = i + 1;
             if (i > 2) {
@@ -43,7 +43,7 @@ const ParkDetails = () => {
       setActivityColumns(columns)
     }
   };
-  console.log(activityColumns)
+  console.log(columns)
 
       // Set the state to the new list of three lists of
       // conferences
@@ -53,15 +53,16 @@ const ParkDetails = () => {
   useEffect(() => {
     fetchData();
   }, []);
+  console.log(activities)
 
 
 
-function ActivityColumn(props) {
+function ActivityColumn() {
   return (
     <div className="col">
-      {props.list.map(activity => {
+      {activities.map(activity => {
         return (
-          <div key={activity} className="card mb-3 p-1 shadow"> {activity}</div>
+          <div key={activity.id} className="card mb-3 shadow"> {activity.name}</div>
         );
       })}
     </div>

@@ -53,6 +53,7 @@ const ParkDetails = () => {
   useEffect(() => {
     fetchData();
   }, []);
+  console.log(activities)
 
 
 
@@ -61,7 +62,7 @@ function ActivityColumn(props) {
     <div className="col">
       {props.list.map(activity => {
         return (
-          <div key={activity} className="card mb-3 p-1 shadow"> {activity}</div>
+          <div key={activity.id} className="card mb-3 shadow"> {activity.name}</div>
         );
       })}
     </div>

@@ -32,36 +32,41 @@ const ParkDetails = () => {
       setActivities(data.data[0].activities)
       
       const columns = [[], [], []];
-        let i = 0;
-        for (const activity of data.data[0].activities) {
-            columns[i].push(activity.name);
-            i = i + 1;
-            if (i > 2) {
-              i = 0;
-            }
-          }
-      setActivityColumns(columns)
-    }
-  };
-  console.log(activityColumns)
+
+        // Loop over the conference detail responses and add
+        // each to to the proper "column" if the response is
+        // ok
+      let i = 0;
+      // for (const activity of park.activities) {
+      //     columns[i].push(activity.name);
+      //     i = i + 1;
+      //     if (i > 2) {
+      //       i = 0;
+      //     }
+      //   }
+    
 
       // Set the state to the new list of three lists of
       // conferences
-      // setActivityColumns(columns);
+      setActivityColumns(columns);
+    }
+  };
+
  
 
   useEffect(() => {
     fetchData();
   }, []);
+        console.log(activities)
 
 
 
-function ActivityColumn(props) {
+function ActivityColumn() {
   return (
     <div className="col">
-      {props.list.map(activity => {
+      {park.activities.map(activity => {
         return (
-          <div key={activity} className="card mb-3 p-1 shadow"> {activity}</div>
+          <div key={activity} className="card mb-3 shadow"> {activity}</div>
         );
       })}
     </div>
@@ -155,11 +160,11 @@ function ActivityColumn(props) {
             <h5>Activities</h5>
             <div>
               <div className="row">
-                {activityColumns.map((activityList, index) => {
+                {/* {activityColumns.map((activityList, index) => {
             return (
               <ActivityColumn key={index} list={activityList} />
             );
-          })}
+          })} */}
         </div>
 
               {/* {park.activities.map((activity) => {
