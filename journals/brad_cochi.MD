@@ -33,3 +33,12 @@ Created version one of live chat page. Updated nav to include link to live chat 
 
 7/18
 Worked as a group to integrate wishlist, visited and park details pages. Corrected reviews unit tests to match latest changes to models.
+
+7/19
+Updated chat feature. Worked in a pair with Sara group to add some error handling to the signup function, a star selector to the review functionality, and added some palette choices to the index.css file.
+
+7/20
+Added some styling to the home page and fixed the styling for the chat feature so the messages are contained and scroll. Completed the Readme file.
+
+7/24
+Finished the park details page and did some code clean up with flake8, prettier, & visual removal of console.logs.
