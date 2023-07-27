@@ -8,6 +8,7 @@ const App = () => {
   const [socket, setSocket] = useState();
 
   const account = useGetAccountQuery();
+  // console.log({ outer_account: account });
 
   useEffect(() => {
     const account_id = account?.data?.id;

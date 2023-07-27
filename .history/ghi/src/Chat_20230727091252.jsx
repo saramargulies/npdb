@@ -8,9 +8,12 @@ const App = () => {
   const [socket, setSocket] = useState();
 
   const account = useGetAccountQuery();
+  // console.log({ outer_account: account });
 
   useEffect(() => {
     const account_id = account?.data?.id;
+    // console.log({ account_id });
+    // console.log({ account });
 
     if (account_id) {
       const ws = new WebSocket(`ws://localhost:8000/ws/${account_id}`);
