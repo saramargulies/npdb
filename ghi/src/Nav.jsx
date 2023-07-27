@@ -1,10 +1,17 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useGetAccountQuery, useLogoutMutation } from "./app/apiSlice";
 
 const Nav = () => {
   const { data: account, error, isLoading } = useGetAccountQuery();
   const [logout, logoutResponse] = useLogoutMutation();
+  const navigate = useNavigate();
+
+  const logoutAndRedirect = () => {
+    logout();
+    navigate("/");
+    window.location.reload(false);
+  };
 
   if (isLoading) {
     return null;
@@ -22,9 +29,16 @@ const Nav = () => {
             </div>
           </span>
         </div>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon">
-          </span>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <div className="navbar-nav-container">
@@ -78,7 +92,10 @@ const Nav = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="login" className="btn btn-outline-primary display-7">
+                <NavLink
+                  to="login"
+                  className="btn btn-outline-primary display-7"
+                >
                   Login
                 </NavLink>
               </li>
@@ -86,7 +103,10 @@ const Nav = () => {
           </div>
         )}
         {account && (
-          <button className="btn btn-primary display-7" onClick={logout}>
+          <button
+            className="btn btn-primary display-7"
+            onClick={logoutAndRedirect}
+          >
             Log Out
           </button>
         )}
