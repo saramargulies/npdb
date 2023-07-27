@@ -1,10 +1,3 @@
-/* #131826
-#24735c
-#40341f
-#BFAC95
-#8c7558
-#f2e2c4 */
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -19,12 +12,12 @@ code {
     monospace;
 }
 
-
 #detail-page-header {
   background-repeat: no-repeat;
   background-size: cover;
   height: 250px;
   width: 100%;
+
 }
 
 #welcome-card-header {
@@ -51,4 +44,65 @@ code {
 #detail-image{
   height: 350px;
   width: auto
+}
+
+.spacer {
+  height: 10rem;
+}
+
+.small-spacer {
+  height: 5rem;
+}
+
+.mini-spacer {
+  height: 1.75rem;
+}
+
+.page-container {
+  background-image: linear-gradient(to bottom right, #4f6457, #7da3a1);
+}
+
+.custom-nav {
+  background-color: #F8F8FF;
+}
+
+.footer {
+  background-color: #BFAC95;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.column {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.bottom {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.image {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  color: #bfac95;
+  padding: 0px 25px;
 }

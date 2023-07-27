@@ -29,6 +29,8 @@ const SignUp = () => {
     signup({ username, password, full_name });
   };
   return (
+    <div className="page-container">
+      <div className="spacer"></div>
     <div className="row">
       <div className="col-md-6 offset-md-3">
         <h1>SignUp</h1>
@@ -90,11 +92,13 @@ const SignUp = () => {
               }}
             />
           </div>
-          <button type="submit" className="btn btn-success">
+          <button type="submit" className="btn btn-success" style={{ color: "#f8f8ff" }}>
             Submit
           </button>
         </form>
       </div>
+    </div>
+    <div className="spacer"></div>
     </div>
   );
 };

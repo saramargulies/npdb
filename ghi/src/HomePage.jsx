@@ -36,12 +36,15 @@ const HomePage = () => {
         <div className="col flex-shrink-1 justify-content-center">
           <div className="card text-dark bg-light mb-3">
             <div id="welcome-card-header" className="card-header">
-              Welcome to NPDB!
+              <strong>
+              Welcome to NPDB
+              </strong>
             </div>
             <div id="welcome-card-body" className="card-body">
-              <h5 className="card-title">Choose a State!</h5>
+              <h5 className="card-title">Choose a State</h5>
               <p className="card-text">
                 Click on a state to see all of the national parks in that state.
+                Please sign up to make lists and write reviews.
               </p>
             </div>
           </div>

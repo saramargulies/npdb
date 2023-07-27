@@ -11,7 +11,7 @@ const Nav = () => {
   }
 
   return (
-    <nav className="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg p-0">
+    <nav className="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg p-0 custom-nav">
       <div className="container-custom container">
         <div className="navbar-brand">
           <span className="navbar-caption-wrap">
@@ -22,16 +22,9 @@ const Nav = () => {
             </div>
           </span>
         </div>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="material-icons-outlined">menu</span>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon">
+          </span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <div className="navbar-nav-container">
@@ -85,7 +78,7 @@ const Nav = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="login" className="btn btn-primary display-7">
+                <NavLink to="login" className="btn btn-outline-primary display-7">
                   Login
                 </NavLink>
               </li>

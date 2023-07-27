@@ -22,6 +22,8 @@ const ParksByStateList = () => {
   }, []);
   return (
     <>
+      <div className="page-container">
+      <div className="small-spacer"></div>
       <h1>National Parks in {state}</h1>
       <div className="m-5">
         <table>
@@ -63,6 +65,9 @@ const ParksByStateList = () => {
             })}
           </tbody>
         </table>
+      </div>
+      <div className="small-spacer">
+      </div>
       </div>
     </>
   );

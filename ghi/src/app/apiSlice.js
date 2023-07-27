@@ -76,7 +76,7 @@ export const npsApi = createApi({
         method: "DELETE",
         credentials: "include",
       }),
-      invalidatesTags: ["Account"],
+      invalidatesTags: ["Account", "Wishlist", "Visited", "Reviews"],
     }),
     login: builder.mutation({
       query: ({ username, password }) => {
@@ -152,6 +152,14 @@ export const npsApi = createApi({
       transformResponse: (response) => response.reviews,
       providesTags: ["Reviews"],
     }),
+    deleteReview: builder.mutation({
+      query: (review_id) => ({
+        url: `/api/reviews/${review_id}`,
+        method: "DELETE",
+        credentials: "include",
+      }),
+      invalidatesTags: ["Reviews"],
+    }),
   }),
 });
 
@@ -167,6 +175,7 @@ export const {
   useGetReviewsByParkQuery,
   useUpdateParkReviewMutation,
   useGetReviewsByAccountQuery,
+  useDeleteReviewMutation,
   useMarkAsVisitedMutation,
   useAddToWishlistMutation,
 } = npsApi;
