@@ -31,7 +31,9 @@ function Wishlist() {
                 return (
                   <tr className="object-fit" key={park.id}>
                     <td>
-                      <Link to={`/park/${park.parkCode}`}>{park.fullName}</Link>
+                      <Link to={`/park/${park.parkCode}`} className="link-dark">
+                        {park.fullName}{" "}
+                      </Link>
                     </td>
                     <td>{park.states}</td>
                     <td>
