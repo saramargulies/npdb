@@ -27,6 +27,7 @@ const ParkDetails = () => {
     if (response.ok) {
       const data = await response.json();
       setPark(data.data[0]);
+      console.log(data)
 
       const columns = [[], [], []];
       let i = 0;
@@ -96,15 +97,41 @@ const ParkDetails = () => {
 
   return (
     <>
+    <div className="page-container">
+    <div className="small-spacer"></div>
       <div className="container-fluid">
         <div>
+          <h2>{park.fullName}</h2>
           <div
             id="detail-page-header"
             style={{ backgroundImage: `url(${park.images[0].url})` }}
           >
-            <h2>{park.fullName}</h2>
           </div>
-          {!wishlisted && account && (
+          <div className="card mb-3">
+            <div className="row g-0">
+              <div className="col-md-4 d-flex align-items-center">
+                {park.images.length > 0 && (
+                  <img
+                    className="img-fluid rounded-start"
+                    id="detail-image"
+                    src={
+                      park.images[1]?.url
+                        ? park.images[1]?.url
+                        : "/NPDBlogo.png"
+                    }
+                    alt={park.fullName}
+                  />
+                )}
+              </div>
+              <div className="col-md-8">
+                <div className="card-body">
+                  <h5 className="card-title">{park.fullName}</h5>
+                  <p className="card-text">{park.description}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+           {!wishlisted && account && (
             <button
               className="btn btn-primary"
               onClick={() => addToWishlist({ parkCode, fullName, states })}
@@ -120,11 +147,12 @@ const ParkDetails = () => {
           {account && (
             <button
               type="button"
-              className="btn btn-primary"
+              className="btn btn-outline-primary"
+              style={{ backgroundColor: "white" }}
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
             >
-              Leave a Review
+              Review Park
             </button>
           )}
 
@@ -166,32 +194,9 @@ const ParkDetails = () => {
               </div>
             </div>
           </div>
-          <div className="card mb-3">
-            <div className="row g-0">
-              <div className="col-md-4 d-flex align-items-center">
-                {park.images.length > 0 && (
-                  <img
-                    className="img-fluid rounded-start"
-                    id="detail-image"
-                    src={
-                      park.images[1]?.url
-                        ? park.images[1]?.url
-                        : "/NPDBlogo.png"
-                    }
-                    alt={park.fullName}
-                  />
-                )}
-              </div>
-              <div className="col-md-8">
-                <div className="card-body">
-                  <h5 className="card-title">{park.fullName}</h5>
-                  <p className="card-text">{park.description}</p>
-                </div>
-              </div>
-            </div>
-          </div>
           <div>
-            <h5>Activities</h5>
+            <div className="mini-spacer"></div>
+            <h3>Activities</h3>
             <div>
               <div className="row">
                 {activityColumns.map((activityList, index) => {
@@ -202,7 +207,8 @@ const ParkDetails = () => {
           </div>
         </div>
         <div>
-          <h2>Reviews</h2>
+          <div className="mini-spacer"></div>
+          <h2>Park Reviews</h2>
           <table className="table">
             <tbody>
               {data.map((review) => {
@@ -228,6 +234,8 @@ const ParkDetails = () => {
           </table>
         </div>
       </div>
+      <div className="small-spacer"></div>
+    </div>
     </>
   );
 };

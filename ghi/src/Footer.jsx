@@ -1,5 +1,5 @@
-import React from "react";
-import "./footer.css";
+import React from 'react';
+import './index.css';
 
 const Footer = () => {
   return (
@@ -21,11 +21,9 @@ const Footer = () => {
                 https://www.nps.gov/index.htm/
               </a>
             </li>
+            <li>&copy; {new Date().getFullYear()} National Parks Database</li>
           </ul>
         </div>
-      </div>
-      <div className="bottom">
-        <p>&copy; {new Date().getFullYear()} National Parks Database</p>
       </div>
     </footer>
   );

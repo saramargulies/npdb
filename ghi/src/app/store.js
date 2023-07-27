@@ -6,7 +6,7 @@ export const store = configureStore({
     reducer: {
         [npsApi.reducerPath]: npsApi.reducer
     },
-    middleware: (getDefaultMiddleware) => 
+    middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(npsApi.middleware)
 })
 
