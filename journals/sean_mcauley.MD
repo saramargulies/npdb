@@ -51,3 +51,11 @@ we worked as a team on styling some aspects of the projects, I took the reigns o
 7/24
 
 got past the blocker on the park details page as a team and we passed the activities collumns into a useState and iterated over the activities to display in 3 collumns. We combed through the whole project for formatting and unused imports and console logs.
+
+7/25-7/26
+
+project is done aside from some additional stretch goals and styling, the team took some time to step away and study for the final assessment. the team went o ver some styling additions that Ryan and worked on and got everything applied and merged with main.
+
+7/27-728
+
+the team got together to debug some errors and warnings we were getting in the console, even though we were seeing functionality of the application as expected. we applied some additional styling changes as well and did a thorough test of the sites functionality and made some plans for some additional stretch goals.
