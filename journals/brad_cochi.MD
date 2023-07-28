@@ -42,3 +42,15 @@ Added some styling to the home page and fixed the styling for the chat feature s
 
 7/24
 Finished the park details page and did some code clean up with flake8, prettier, & visual removal of console.logs.
+
+7/25
+Project basically completed. Didn't work on anything and took the time to study for the assessment.
+
+7/26
+Project basically completed. Didn't work on anything and took the time to study for the assessment.
+
+7/27
+Had a blocker with the wishlist page not refreshing automatically when one user logs out and another logs in. Worked as a group to get that fixed. Also fixed bugs with chat and hamburger menu icon not appearing.
+
+7/28
+Worked as a group to fix bugs with tables, home page map svg and background images on the details page.
