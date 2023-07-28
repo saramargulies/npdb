@@ -29,16 +29,14 @@ const HomePage = () => {
             title=""
             defaultFill="#f2e2c4"
             height="60rem"
-            width="auto"
+            width="100%"
             onClick={mapHandler}
           />
         </div>
         <div className="col flex-shrink-1 justify-content-center">
           <div className="card text-dark bg-light mb-3">
             <div id="welcome-card-header" className="card-header">
-              <strong>
-              Welcome to NPDB
-              </strong>
+              <strong>Welcome to NPDB</strong>
             </div>
             <div id="welcome-card-body" className="card-body">
               <h5 className="card-title">Choose a State</h5>

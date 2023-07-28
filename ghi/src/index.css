@@ -17,7 +17,7 @@ code {
   background-size: cover;
   height: 250px;
   width: 100%;
-
+  background-position: center;
 }
 
 #welcome-card-header {
@@ -38,12 +38,12 @@ code {
 }
 
 .link {
-  color:#8c7558
+  color: #8c7558;
 }
 
-#detail-image{
+#detail-image {
   height: 350px;
-  width: auto
+  width: auto;
 }
 
 .spacer {
@@ -63,11 +63,11 @@ code {
 }
 
 .custom-nav {
-  background-color: #F8F8FF;
+  background-color: #f8f8ff;
 }
 
 .footer {
-  background-color: #BFAC95;
+  background-color: #bfac95;
   padding: 20px;
 }
 
@@ -100,7 +100,9 @@ code {
   padding: 0;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: "Roboto", sans-serif;
   font-weight: bold;
   color: #bfac95;
