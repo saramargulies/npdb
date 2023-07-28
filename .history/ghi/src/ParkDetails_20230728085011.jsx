@@ -212,7 +212,7 @@ const ParkDetails = () => {
                   return (
                     <tr key={review.id}>
                       <td>
-                        <table className="table table-light">
+                        <table className="table table-dark">
                           <tbody>
                             <tr>
                               <td>

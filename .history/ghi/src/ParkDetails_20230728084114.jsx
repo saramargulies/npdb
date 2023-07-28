@@ -210,27 +210,21 @@ const ParkDetails = () => {
               <tbody>
                 {data.map((review) => {
                   return (
-                    <tr key={review.id}>
-                      <td>
-                        <table className="table table-light">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <strong>User:</strong> {review.username}{" "}
-                              </td>
-                              <td>
-                                <strong>Rating:</strong> {review.rating}{" "}
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <strong>Review:</strong> {review.review}{" "}
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
+                    <>https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins
+                      <tr key={review.id}>
+                        {console.log(review.id)}
+                        <td>
+                          <strong>User:</strong> {review.username}{" "}
+                        </td>
+                        <td>
+                          <strong>Rating:</strong> {review.rating}{" "}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>Review:</strong> {review.review}{" "}
+                        </td>
+                      </tr>
                   );
                 })}
               </tbody>

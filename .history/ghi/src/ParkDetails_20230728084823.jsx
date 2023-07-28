@@ -210,9 +210,9 @@ const ParkDetails = () => {
               <tbody>
                 {data.map((review) => {
                   return (
-                    <tr key={review.id}>
+                    <tr>
                       <td>
-                        <table className="table table-light">
+                        <table x>
                           <tbody>
                             <tr>
                               <td>

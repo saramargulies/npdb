@@ -31,7 +31,7 @@ const ParkDetails = () => {
       const columns = [[], [], []];
       let i = 0;
       for (const activity of data.data[0].activities) {
-        columns[i].push(activity);
+        columns[i].push(activity.name);
         i = i + 1;
         if (i > 2) {
           i = 0;
@@ -50,8 +50,9 @@ const ParkDetails = () => {
       <div className="col">
         {props.list.map((activity) => {
           return (
-            <div key={activity.id} className="card mb-3 p-1 shadow">
-              {activity.name}
+            <div key={activity} className="card mb-3 p-1 shadow">
+              {" "}
+              {activity}
             </div>
           );
         })}
@@ -210,27 +211,21 @@ const ParkDetails = () => {
               <tbody>
                 {data.map((review) => {
                   return (
-                    <tr key={review.id}>
-                      <td>
-                        <table className="table table-light">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <strong>User:</strong> {review.username}{" "}
-                              </td>
-                              <td>
-                                <strong>Rating:</strong> {review.rating}{" "}
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <strong>Review:</strong> {review.review}{" "}
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
+                    <>
+                      <tr key={review.id}>
+                        <td>
+                          <strong>User:</strong> {review.username}{" "}
+                        </td>
+                        <td>
+                          <strong>Rating:</strong> {review.rating}{" "}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>Review:</strong> {review.review}{" "}
+                        </td>
+                      </tr>
+                    </>
                   );
                 })}
               </tbody>
