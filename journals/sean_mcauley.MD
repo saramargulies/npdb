@@ -1,14 +1,14 @@
 6/27
 
-implemented get protected function for fastAPI backend
+implemented get protected function for fastAPI backend.
 
 6/28
 
-did not "drive today. we worked together on backend endpoints for showing parks by state and showing one park
+did not "drive" today. we worked together on backend endpoints for showing parks by state and showing one park.
 
 6/29
 
-completed feature to GET a wishlist
+completed feature to GET a wishlist.
 
 6/30
 
@@ -54,7 +54,7 @@ got past the blocker on the park details page as a team and we passed the activi
 
 7/25-7/26
 
-project is done aside from some additional stretch goals and styling, the team took some time to step away and study for the final assessment. the team went o ver some styling additions that Ryan and worked on and got everything applied and merged with main.
+project is done aside from some additional stretch goals and styling, the team took some time to step away and study for the final assessment. the team went o ver some styling additions that Ryan worked on and got everything applied and merged with main.
 
 7/27-728
 
