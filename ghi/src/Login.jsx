@@ -61,7 +61,7 @@ const Login = () => {
             <div className="card-body" style={{ backgroundColor: "#f2e2c4"}}>
               <blockquote className="blockquote mb-0" >
                 <p>There is no Wi-Fi in the forest, but I promise you will find a better connection.</p>
-                <footer className="blockquote-footer">Ralph Smart</footer>
+                <footer className="blockquote-footer">Unknown</footer>
               </blockquote>
             </div>
           </div>

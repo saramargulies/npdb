@@ -55,6 +55,7 @@ const App = () => {
   return (
     <>
       <section>
+        <div className="small-spacer"></div>
         <div className="container container-fluid">
           <div className="row container-fluid d-flex justify-content-center">
             <div className="col-md-8 col-lg-6 col-xl-4">
@@ -89,7 +90,7 @@ const App = () => {
                       </button>
                     </div>
                     <div>
-                      {messages.map((message) => {
+                      {messages.slice(0).reverse().map((message) => {
                         const displayed_name =
                           message.full_name === account.data.full_name
                             ? "You"
@@ -117,6 +118,7 @@ const App = () => {
             </div>
           </div>
         </div>
+        <div className="spacer"></div>
       </section>
     </>
   );

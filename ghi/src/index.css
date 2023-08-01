@@ -67,7 +67,10 @@ code {
 }
 
 .footer {
-  background-color: #bfac95;
+  background-image: url('/public/trees-unsplash.jpg'); /* Replace './images/trees-unsplash.jpg' with the correct path to your image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   padding: 20px;
 }
 
@@ -108,3 +111,5 @@ h3 {
   color: #bfac95;
   padding: 0px 25px;
 }
+
+
