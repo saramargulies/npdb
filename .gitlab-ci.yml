@@ -59,7 +59,7 @@ build-front-end-job:
   script:
     - cd ghi
     - npm install
-    - npm run build
+    - npm i --legacy-peer-deps
     - cp build/index.html build/404.html
   artifacts:
     paths:
