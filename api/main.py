@@ -24,6 +24,11 @@ app.add_middleware(
 )
 
 
+@app.get("/")
+def home():
+    return True
+
+
 class ConnectionManager:
     def __init__(self):
         self.active_connections: list[WebSocket] = []
