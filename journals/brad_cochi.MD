@@ -54,3 +54,5 @@ Had a blocker with the wishlist page not refreshing automatically when one user 
 
 7/28
 Worked as a group to fix bugs with tables, home page map svg and background images on the details page.
+
+Doesn't matter
