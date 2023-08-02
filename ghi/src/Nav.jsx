@@ -3,8 +3,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useGetAccountQuery, useLogoutMutation } from "./app/apiSlice";
 
 const Nav = () => {
-  const { data: account, error, isLoading } = useGetAccountQuery();
-  const [logout, logoutResponse] = useLogoutMutation();
+  const { data: account, isLoading } = useGetAccountQuery();
+  const [logout] = useLogoutMutation();
   const navigate = useNavigate();
 
   const logoutAndRedirect = () => {
