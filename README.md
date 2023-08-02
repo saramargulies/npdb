@@ -5,7 +5,7 @@ Ryan Wade
 Sean McAuley
 Sara Margulies
 
-National Park Database – Your choice stop for planning your next National Parks adventure
+National Parks Database – Your choice stop for planning your next National Parks adventure
 
 
 Intended market
