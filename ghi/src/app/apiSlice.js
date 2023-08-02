@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import MyReviews from "../MyReviews";
 
 export const npsApi = createApi({
   reducerPath: "npsApi",

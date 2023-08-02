@@ -19,7 +19,7 @@ const ParkDetails = () => {
   let { parkCode } = useParams();
 
   const [park, setPark] = useState();
-  const { data, isLoading } = useGetReviewsByParkQuery(parkCode);
+  const { data } = useGetReviewsByParkQuery(parkCode);
   const fetchData = async () => {
     const url = `http://localhost:8000/api/parks/code/${parkCode}`;
 
@@ -43,6 +43,7 @@ const ParkDetails = () => {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function ActivityColumn(props) {
@@ -65,7 +66,7 @@ const ParkDetails = () => {
   let reviewed = false;
   if (data && account) {
     for (let entry of data) {
-      if (entry.account_id == account.id) {
+      if (entry.account_id === account.id) {
         reviewed = true;
       }
     }
@@ -73,12 +74,12 @@ const ParkDetails = () => {
   let wishlisted = false;
   if (wishlist && visited && account) {
     for (let entry of wishlist) {
-      if (entry.fullName == park?.fullName) {
+      if (entry.fullName === park?.fullName) {
         wishlisted = true;
       }
     }
     for (let entry of visited) {
-      if (entry.fullName == park?.fullName) {
+      if (entry.fullName === park?.fullName) {
         wishlisted = true;
       }
     }

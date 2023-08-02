@@ -30,11 +30,6 @@ function ReviewForm(parkProps) {
     setRating(index + 1);
   };
 
-  let isDisabled = false;
-  if (typeof rating == "string") {
-    isDisabled = true;
-  }
-
   return (
     <div>
       <div>
