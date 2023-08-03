@@ -3,9 +3,17 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const npsApi = createApi({
   reducerPath: "npsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_API_HOST,
+    baseUrl: http://localhost:8000",
   }),
   endpoints: (builder) => ({
+    getParkByCode: builder.query({
+      query: () => ({
+        url: `api/api/parks/code/${parkCode}`,
+        credentials: "include",
+      }),
+      transformResponse: (response) => response.wishlist_items,
+      providesTags: ["Park"],
+    }),
     getWishlist: builder.query({
       query: () => ({
         url: `api/wishlists?visited=false`,
@@ -177,4 +185,5 @@ export const {
   useDeleteReviewMutation,
   useMarkAsVisitedMutation,
   useAddToWishlistMutation,
+  useGetParkByCodeQuery
 } = npsApi;

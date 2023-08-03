@@ -177,4 +177,5 @@ export const {
   useDeleteReviewMutation,
   useMarkAsVisitedMutation,
   useAddToWishlistMutation,
+  useGetParkByCodeQuery
 } = npsApi;

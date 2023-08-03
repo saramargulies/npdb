@@ -41,7 +41,7 @@ const App = () => {
 
       ws.onclose = () => {
         const ws = new WebSocket(
-          `${process.env.WS_APP_API_HOST}/ws/${account_id}`
+          `{process.env.WS_APP_API_HOST}/ws/${account_id}`
         );
         setSocket(ws);
       };

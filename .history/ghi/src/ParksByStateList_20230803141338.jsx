@@ -8,7 +8,7 @@ const ParksByStateList = () => {
   const [parks, setParks] = useState([]);
 
   const fetchData = async () => {
-    const url = `${process.env.REACT_APP_API_HOST}/api/parks/${state}`;
+    const url = ``${process.env.REACT_APP_API_HOST}/`/api/parks/${state}`;
 
     const response = await fetch(url);
     if (response.ok) {

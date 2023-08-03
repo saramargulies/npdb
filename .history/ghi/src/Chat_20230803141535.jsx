@@ -32,7 +32,7 @@ const App = () => {
     const account_id = account?.data?.id;
 
     if (account_id) {
-      const ws = new WebSocket(`${process.env.WS_APP_API_HOST}/ws/${account_id}`);
+      const ws = new WebSocket(`ws://${process.env.REACT_APP_API_HOST}//ws/${account_id}`);
 
       ws.onmessage = (event) => {
         const newMessage = JSON.parse(event.data);
@@ -40,9 +40,7 @@ const App = () => {
       };
 
       ws.onclose = () => {
-        const ws = new WebSocket(
-          `${process.env.WS_APP_API_HOST}/ws/${account_id}`
-        );
+        const ws = new WebSocket(`ws://localhost:8000/ws/${account_id}`);
         setSocket(ws);
       };
 

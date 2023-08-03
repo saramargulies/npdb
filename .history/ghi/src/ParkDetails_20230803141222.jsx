@@ -5,7 +5,8 @@ import {
   useGetAccountQuery,
   useAddToWishlistMutation,
   useGetWishlistQuery,
-  useGetVisitedQuery
+  useGetVisitedQuery,
+  useGetParkByCodeQuery
 } from "./app/apiSlice";
 import ReviewForm from "./ReviewForm";
 
@@ -21,7 +22,7 @@ const ParkDetails = () => {
   const [park, setPark] = useState();
   const { data } = useGetReviewsByParkQuery(parkCode);
   const fetchData = async () => {
-    const url = `${process.env.REACT_APP_API_HOST}/api/parks/code/${parkCode}`;
+    const url = process.env.REACT_APP_API;
 
     const response = await fetch(url);
     if (response.ok) {

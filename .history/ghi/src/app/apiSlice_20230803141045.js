@@ -6,6 +6,14 @@ export const npsApi = createApi({
     baseUrl: process.env.REACT_APP_API_HOST,
   }),
   endpoints: (builder) => ({
+    getParkByCode: builder.query({
+      query: () => ({
+        url: `api/api/parks/code/${parkCode}`,
+        credentials: "include",
+      }),
+      transformResponse: (response) => response.wishlist_items,
+      providesTags: ["Park"],
+    }),
     getWishlist: builder.query({
       query: () => ({
         url: `api/wishlists?visited=false`,
@@ -177,4 +185,5 @@ export const {
   useDeleteReviewMutation,
   useMarkAsVisitedMutation,
   useAddToWishlistMutation,
+  useGetParkByCodeQuery
 } = npsApi;

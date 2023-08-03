@@ -56,7 +56,7 @@ build-front-end-job:
     # GROUP_NAME, PROJECT_NAME, & WEBSERVICE_NAME below.
     PUBLIC_URL: https://SaraMargs.gitlab.io/NPDB
     REACT_APP_API_HOST: https://mar-8-ct-npbd-api.mod3projects.com
-    WS_APP_API_HOST: ws://mar-8-ct-npbd-api.mod3projects.com
+    
   script:
     - cd ghi
     - npm install
