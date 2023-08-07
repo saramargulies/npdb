@@ -55,7 +55,7 @@ build-front-end-job:
     # You need to substitute in your real values for
     # GROUP_NAME, PROJECT_NAME, & WEBSERVICE_NAME below.
     PUBLIC_URL: https://saramargs.gitlab.io/npdt/
-    REACT_APP_API_HOST: https://mar-8-ct-npbd-api.mod3projects.com
+    REACT_APP_API_HOST: https://mar-8-ct-npdb-api.mod3projects.com
     WS_APP_API_HOST: ws://mar-8-ct-npbd-api.mod3projects.com
   script:
     - cd ghi
