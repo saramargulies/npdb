@@ -5,9 +5,10 @@ import {
   useGetAccountQuery,
   useAddToWishlistMutation,
   useGetWishlistQuery,
-  useGetVisitedQuery
+  useGetVisitedQuery,
 } from "./app/apiSlice";
 import ReviewForm from "./ReviewForm";
+import NpdbLogo from "./images/NPDBlogo.png";
 
 const ParkDetails = () => {
   const { data: account } = useGetAccountQuery();
@@ -113,9 +114,7 @@ const ParkDetails = () => {
                       className="img-fluid rounded-start"
                       id="detail-image"
                       src={
-                        park.images[1]?.url
-                          ? park.images[1]?.url
-                          : "/NPDBlogo.png"
+                        park.images[1]?.url ? park.images[1]?.url : { NpdbLogo }
                       }
                       alt={park.fullName}
                     />
