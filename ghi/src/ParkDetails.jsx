@@ -113,9 +113,7 @@ const ParkDetails = () => {
                     <img
                       className="img-fluid rounded-start"
                       id="detail-image"
-                      src={
-                        park.images[1]?.url ? park.images[1]?.url : { NpdbLogo }
-                      }
+                      src={park.images[1]?.url ? park.images[1]?.url : NpdbLogo}
                       alt={park.fullName}
                     />
                   )}
