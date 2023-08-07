@@ -14,15 +14,10 @@ app.include_router(parks.router, tags=["Park Data"])
 app.include_router(wishlists.router, tags=["Wishlists"])
 app.include_router(reviews.router, tags=["Reviews"])
 
-origins = [
-    "http://localhost:3000",
-    os.environ.get("CORS_HOST", None),
-]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
-    # [os.environ.get("CORS_HOST", "http://localhost:3000")],
+    allow_origins=[os.environ.get("CORS_HOST", "http://localhost:3000")],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
