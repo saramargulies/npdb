@@ -36,4 +36,4 @@ class AppAuthenticator(Authenticator):
         return account.username, AccountOut(**account.dict())
 
 
-authenticator = AppAuthenticator(os.environ.get("SIGNING_KEY"))
+authenticator = AppAuthenticator(os.environ.get("SIGNING_KEY"])

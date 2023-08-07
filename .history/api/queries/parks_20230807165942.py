@@ -2,7 +2,7 @@ import requests
 import os
 
 
-NPS_API_KEY = os.environ.get("NPS_API_KEY")
+NPS_API_KEY = os.environ.get["NPS_API_KEY"]
 
 
 class ParkQueries:
