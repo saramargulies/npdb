@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useGetAccountQuery, useLogoutMutation } from "./app/apiSlice";
+import NpdbLogo from "./images/NPDBlogo.png";
 
 const Nav = () => {
   const { data: account, isLoading } = useGetAccountQuery();
@@ -24,7 +25,7 @@ const Nav = () => {
           <span className="navbar-caption-wrap">
             <div>
               <NavLink to="/" className="nav-link link display-7">
-                <img src="/NPDBlogo.png" className="logo-img" alt="logo" />
+                <img src={NpdbLogo} className="logo-img" alt="logo" />
               </NavLink>
             </div>
           </span>
