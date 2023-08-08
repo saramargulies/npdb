@@ -56,7 +56,7 @@ build-front-end-job:
     # GROUP_NAME, PROJECT_NAME, & WEBSERVICE_NAME below.
     PUBLIC_URL: https://saramargs.gitlab.io/npdt/
     REACT_APP_API_HOST: https://mar-8-ct-npdb-api.mod3projects.com
-    REACT_APP_WS_HOST: ws://mar-8-ct-npdb-api.mod3projects.com
+    REACT_APP_WS_HOST: wss://mar-8-ct-npdb-api.mod3projects.com
   script:
     - cd ghi
     - npm install
