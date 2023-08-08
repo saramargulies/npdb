@@ -30,10 +30,12 @@ const App = () => {
 
   useEffect(() => {
     const account_id = account?.data?.id;
-    const websocket_url = process.env.WS_APP_API_HOST;
+    console.log(process.env.WS_APP_API_HOST);
 
-    if (account_id && websocket_url) {
-      const ws = new WebSocket(`${websocket_url}/ws/${account_id}`);
+    if (account_id) {
+      const ws = new WebSocket(
+        `${process.env.WS_APP_API_HOST}/ws/${account_id}`
+      );
 
       ws.onmessage = (event) => {
         const newMessage = JSON.parse(event.data);
@@ -41,7 +43,9 @@ const App = () => {
       };
 
       ws.onclose = () => {
-        const ws = new WebSocket(`${websocket_url}/ws/${account_id}`);
+        const ws = new WebSocket(
+          `${process.env.WS_APP_API_HOST}/ws/${account_id}`
+        );
         setSocket(ws);
       };
 
