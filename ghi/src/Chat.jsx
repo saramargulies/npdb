@@ -30,7 +30,6 @@ const App = () => {
 
   useEffect(() => {
     const account_id = account?.data?.id;
-    console.log(process.env.REACT_APP_WS_HOST);
 
     if (account_id) {
       const ws = new WebSocket(
