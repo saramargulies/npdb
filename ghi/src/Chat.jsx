@@ -30,9 +30,10 @@ const App = () => {
 
   useEffect(() => {
     const account_id = account?.data?.id;
+    const websocket_url = process.env.WS_APP_API_HOST;
 
-    if (account_id) {
-      const ws = new WebSocket(`${process.env.WS_APP_API_HOST}/ws/${account_id}`);
+    if (account_id && websocket_url) {
+      const ws = new WebSocket(`${websocket_url}/ws/${account_id}`);
 
       ws.onmessage = (event) => {
         const newMessage = JSON.parse(event.data);
@@ -40,9 +41,7 @@ const App = () => {
       };
 
       ws.onclose = () => {
-        const ws = new WebSocket(
-          `${process.env.WS_APP_API_HOST}/ws/${account_id}`
-        );
+        const ws = new WebSocket(`${websocket_url}/ws/${account_id}`);
         setSocket(ws);
       };
 
@@ -92,27 +91,30 @@ const App = () => {
                       </button>
                     </div>
                     <div>
-                      {messages.slice(0).reverse().map((message) => {
-                        const displayed_name =
-                          message.full_name === account.data.full_name
-                            ? "You"
-                            : message.full_name;
+                      {messages
+                        .slice(0)
+                        .reverse()
+                        .map((message) => {
+                          const displayed_name =
+                            message.full_name === account.data.full_name
+                              ? "You"
+                              : message.full_name;
 
-                        return (
-                          <div
-                            key={message.id}
-                            className="d-flex flex-row justify-content-start mb-.25"
-                          >
-                            <div className="ms-1">
-                              <div className="mask">
-                                <p className="m-0">
-                                  {displayed_name} wrote: {message.message}
-                                </p>
+                          return (
+                            <div
+                              key={message.id}
+                              className="d-flex flex-row justify-content-start mb-.25"
+                            >
+                              <div className="ms-1">
+                                <div className="mask">
+                                  <p className="m-0">
+                                    {displayed_name} wrote: {message.message}
+                                  </p>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        );
-                      })}
+                          );
+                        })}
                     </div>
                   </div>
                 </div>
